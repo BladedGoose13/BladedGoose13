@@ -4,6 +4,4 @@ Currently self-learning PCB design on Altium and electronic simulation on LTSPIC
 
 I hold a Cambridge C1 English certification and am currently preparing for the JLPT-N5 in Japanese language.
 
-My goal is to apply my skills in physics, electronics, and computation to cutting-edge industrial R&D projects in areas such as photonics & quantum technologies, semiconductors and advanced electronics.tory because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+My goal is to apply my skills in physics, electronics, and computation to cutting-edge industrial R&D projects in areas such as photonics & quantum technologies, semiconductors and advanced electronics
