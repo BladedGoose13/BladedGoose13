@@ -2,7 +2,7 @@
 
 I read a city through its coffee shops. Find the good one first, sit long enough to be a regular for an afternoon, then get lost in the streets around it. It has never once let me down.
 
-The rest of me: indie and chill rock, gym schedule I don't negotiate with, anime, and plenty of videogames and crafts!
+The rest of me: indie and chill rock, gym (not ur average joe i promise!), anime, and plenty of videogames and crafts!
 Coffee and bakery enjoyer! (and i believe connoisseur lol)
 I also LOVE travelling and getting to know new people.
 
