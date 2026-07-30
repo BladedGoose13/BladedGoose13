@@ -6,9 +6,6 @@ The rest of me: indie and chill rock, gym schedule I don't negotiate with, anime
 Coffee and bakery enjoyer! (and i believe connoisseur lol)
 I also LOVE travelling and getting to know new people.
 
-Work-wise? I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
-And love solving challenges and creating pipeline architectures, building autonomous systems is my specialty!
-
 <p>
   <img src="https://img.shields.io/badge/Valorant-6B4E3A?style=for-the-badge&logo=valorant&logoColor=E8DFD1" alt="Valorant">
   <img src="https://img.shields.io/badge/League_of_Legends-3A4E4C?style=for-the-badge&logo=leagueoflegends&logoColor=E8DFD1" alt="League of Legends">
@@ -19,6 +16,9 @@ And love solving challenges and creating pipeline architectures, building autono
 </p>
 
 <br>
+
+Work-wise? I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
+And love solving challenges and creating pipeline architectures, building autonomous systems is my specialty!
 
 
 **Computational physics · quantitative research · scientific computing.**
