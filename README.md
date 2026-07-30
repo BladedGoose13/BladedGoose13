@@ -10,7 +10,8 @@ I also LOVE travelling and getting to know new people.
   <img src="https://img.shields.io/badge/Valorant-6B4E3A?style=for-the-badge&logo=valorant&logoColor=E8DFD1" alt="Valorant">
   <img src="https://img.shields.io/badge/League_of_Legends-3A4E4C?style=for-the-badge&logo=leagueoflegends&logoColor=E8DFD1" alt="League of Legends">
   <img src="https://img.shields.io/badge/Spotify-2E4A47?style=for-the-badge&logo=spotify&logoColor=E8DFD1" alt="Spotify">
-![Coffee](https://img.shields.io/badge/COFFEE-6F4E37?style=for-the-badge&logo=buymeacoffee&logoColor=white)  <img src="https://img.shields.io/badge/Crunchyroll-6B4E3A?style=for-the-badge&logo=crunchyroll&logoColor=E8DFD1" alt="Crunchyroll">
+  <img src="https://img.shields.io/badge/COFFEE-6F4E37?style=for-the-badge&logo=buymeacoffee&logoColor=white" alt = "Coffe">
+  <img src="https://img.shields.io/badge/Crunchyroll-6B4E3A?style=for-the-badge&logo=crunchyroll&logoColor=E8DFD1" alt="Crunchyroll">
   <img src="https://img.shields.io/badge/Lifting-3A4E4C?style=for-the-badge&logo=strava&logoColor=E8DFD1" alt="Lifting">
 </p>
 
