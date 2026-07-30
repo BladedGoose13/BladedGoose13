@@ -1,38 +1,25 @@
 
-<div align="center">
-  <img src="./src/hero.svg" alt="Max Tragarz — coffee, and the streets that follow it" width="100%">
-</div>
-
-<br>
-
-<div align="center">
-  <img src="./src/about.svg" alt="about" width="100%">
-</div>
 
 I read a city through its coffee shops. Find the good one first, sit long enough to be a regular for an afternoon, then get lost in the streets around it. It has never once let me down.
 
-The rest of me: indie and chill rock more or less permanently on, a gym schedule I don't negotiate with, an anime backlog that never shrinks, and a Valorant queue that has taught me more about tilt control than any book.
+The rest of me: indie and chill rock, gym schedule I don't negotiate with, anime, and plenty of videogames and crafts!
+Coffee and bakery enjoyer! (and i believe connoisseur lol)
+I also LOVE travelling and getting to know new people.
 
-Coffee runs the mornings. Tea shows up when the day needs to slow down.
+Work-wise? I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
+And love solving challenges and creating pipeline architectures, building autonomous systems is my specialty!
+
+<p>
+  <img src="https://img.shields.io/badge/Valorant-6B4E3A?style=for-the-badge&logo=valorant&logoColor=E8DFD1" alt="Valorant">
+  <img src="https://img.shields.io/badge/League_of_Legends-3A4E4C?style=for-the-badge&logo=leagueoflegends&logoColor=E8DFD1" alt="League of Legends">
+  <img src="https://img.shields.io/badge/Spotify-2E4A47?style=for-the-badge&logo=spotify&logoColor=E8DFD1" alt="Spotify">
+  <img src="https://img.shields.io/badge/MyAnimeList-4A3527?style=for-the-badge&logo=myanimelist&logoColor=E8DFD1" alt="MyAnimeList">
+  <img src="https://img.shields.io/badge/Crunchyroll-6B4E3A?style=for-the-badge&logo=crunchyroll&logoColor=E8DFD1" alt="Crunchyroll">
+  <img src="https://img.shields.io/badge/Lifting-3A4E4C?style=for-the-badge&logo=strava&logoColor=E8DFD1" alt="Lifting">
+</p>
 
 <br>
 
-<div align="center">
-  <img src="./src/offline.svg" alt="offline" width="100%">
-</div>
-
-- **Chill rock & indie** — the kind that makes working at 2am feel intentional rather than sad
-- **Lifting** — the only part of the day with no ambiguity in it
-- **Anime** — long-running epics and one-season gems in equal measure
-- **Coffee, then tea** — in that order, most days
-- **Valorant & League** — competitive enough to care, calm enough to stay
-- **Travel** — café, streets, whatever the city hands me after that
-
-<br>
-
-<div align="center">
-  <img src="./src/work.svg" alt="work" width="100%">
-</div>
 
 **Computational physics · quantitative research · scientific computing.**
 
@@ -40,49 +27,71 @@ I like problems where the math has to survive contact with real data. Long term 
 
 <br>
 
-<div align="center">
-  <img src="./src/stack.svg" alt="stack" width="100%">
-</div>
+<sub><b>languages</b></sub>
 
 <p>
   <img src="https://img.shields.io/badge/Python-2E4A47?style=for-the-badge&logo=python&logoColor=E8DFD1" alt="Python">
-  <img src="https://img.shields.io/badge/NumPy-4A3527?style=for-the-badge&logo=numpy&logoColor=E8DFD1" alt="NumPy">
-  <img src="https://img.shields.io/badge/SciPy-6B4E3A?style=for-the-badge&logo=scipy&logoColor=E8DFD1" alt="SciPy">
-  <img src="https://img.shields.io/badge/pandas-2E4A47?style=for-the-badge&logo=pandas&logoColor=E8DFD1" alt="pandas">
-  <img src="https://img.shields.io/badge/PyTorch-4A3527?style=for-the-badge&logo=pytorch&logoColor=E8DFD1" alt="PyTorch">
-  <img src="https://img.shields.io/badge/LaTeX-6B4E3A?style=for-the-badge&logo=latex&logoColor=E8DFD1" alt="LaTeX">
+  <img src="https://img.shields.io/badge/C%2B%2B-4A3527?style=for-the-badge&logo=cplusplus&logoColor=E8DFD1" alt="C++">
+  <img src="https://img.shields.io/badge/MATLAB-6B4E3A?style=for-the-badge&logo=mathworks&logoColor=E8DFD1" alt="MATLAB">
+  <img src="https://img.shields.io/badge/Bash-3A4E4C?style=for-the-badge&logo=gnubash&logoColor=E8DFD1" alt="Bash">
+  <img src="https://img.shields.io/badge/SQLite-2E4A47?style=for-the-badge&logo=sqlite&logoColor=E8DFD1" alt="SQLite">
+  <img src="https://img.shields.io/badge/LaTeX-4A3527?style=for-the-badge&logo=latex&logoColor=E8DFD1" alt="LaTeX">
 </p>
+
+<sub><b>scientific python</b></sub>
+
 <p>
-  <img src="https://img.shields.io/badge/Linux-4A3527?style=for-the-badge&logo=linux&logoColor=E8DFD1" alt="Linux">
-  <img src="https://img.shields.io/badge/Bash-2E4A47?style=for-the-badge&logo=gnubash&logoColor=E8DFD1" alt="Bash">
+  <img src="https://img.shields.io/badge/NumPy-6B4E3A?style=for-the-badge&logo=numpy&logoColor=E8DFD1" alt="NumPy">
+  <img src="https://img.shields.io/badge/SciPy-3A4E4C?style=for-the-badge&logo=scipy&logoColor=E8DFD1" alt="SciPy">
+  <img src="https://img.shields.io/badge/pandas-2E4A47?style=for-the-badge&logo=pandas&logoColor=E8DFD1" alt="pandas">
+  <img src="https://img.shields.io/badge/Matplotlib-4A3527?style=for-the-badge&logo=chartdotjs&logoColor=E8DFD1" alt="Matplotlib">
+  <img src="https://img.shields.io/badge/Plotly-6B4E3A?style=for-the-badge&logo=plotly&logoColor=E8DFD1" alt="Plotly">
+  <img src="https://img.shields.io/badge/Jupyter-3A4E4C?style=for-the-badge&logo=jupyter&logoColor=E8DFD1" alt="Jupyter">
+  <img src="https://img.shields.io/badge/Anaconda-2E4A47?style=for-the-badge&logo=anaconda&logoColor=E8DFD1" alt="Anaconda">
+</p>
+
+<sub><b>machine learning</b></sub>
+
+<p>
+  <img src="https://img.shields.io/badge/PyTorch-4A3527?style=for-the-badge&logo=pytorch&logoColor=E8DFD1" alt="PyTorch">
+  <img src="https://img.shields.io/badge/scikit--learn-6B4E3A?style=for-the-badge&logo=scikitlearn&logoColor=E8DFD1" alt="scikit-learn">
+  <img src="https://img.shields.io/badge/Scientific_ML-3A4E4C?style=for-the-badge&logo=tensorflow&logoColor=E8DFD1" alt="Scientific ML">
+  <img src="https://img.shields.io/badge/Claude_API-2E4A47?style=for-the-badge&logo=anthropic&logoColor=E8DFD1" alt="Claude API">
+</p>
+
+<sub><b>physics & hpc</b></sub>
+
+<p>
+  <img src="https://img.shields.io/badge/Quantum_ESPRESSO-4A3527?style=for-the-badge&logo=atom&logoColor=E8DFD1" alt="Quantum ESPRESSO">
+  <img src="https://img.shields.io/badge/DFT_%26_SOC-6B4E3A?style=for-the-badge&logo=moleculer&logoColor=E8DFD1" alt="DFT & SOC">
+  <img src="https://img.shields.io/badge/Linux-3A4E4C?style=for-the-badge&logo=linux&logoColor=E8DFD1" alt="Linux">
+  <img src="https://img.shields.io/badge/Slurm_%26_HPC-2E4A47?style=for-the-badge&logo=linuxfoundation&logoColor=E8DFD1" alt="Slurm & HPC">
+  <img src="https://img.shields.io/badge/CUDA-4A3527?style=for-the-badge&logo=nvidia&logoColor=E8DFD1" alt="CUDA">
+</p>
+
+<sub><b>build & ship</b></sub>
+
+<p>
   <img src="https://img.shields.io/badge/Git-6B4E3A?style=for-the-badge&logo=git&logoColor=E8DFD1" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub_Actions-3A4E4C?style=for-the-badge&logo=githubactions&logoColor=E8DFD1" alt="GitHub Actions">
   <img src="https://img.shields.io/badge/Docker-2E4A47?style=for-the-badge&logo=docker&logoColor=E8DFD1" alt="Docker">
   <img src="https://img.shields.io/badge/FastAPI-4A3527?style=for-the-badge&logo=fastapi&logoColor=E8DFD1" alt="FastAPI">
-  <img src="https://img.shields.io/badge/MATLAB-6B4E3A?style=for-the-badge&logo=mathworks&logoColor=E8DFD1" alt="MATLAB">
+  <img src="https://img.shields.io/badge/Streamlit-6B4E3A?style=for-the-badge&logo=streamlit&logoColor=E8DFD1" alt="Streamlit">
+  <img src="https://img.shields.io/badge/VS_Code-3A4E4C?style=for-the-badge&logo=visualstudiocode&logoColor=E8DFD1" alt="VS Code">
+  <img src="https://img.shields.io/badge/Overleaf-2E4A47?style=for-the-badge&logo=overleaf&logoColor=E8DFD1" alt="Overleaf">
 </p>
 
-<br>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=TU-USUARIO&show_icons=true&hide_border=true&hide_title=true&bg_color=181412&text_color=E8DFD1&icon_color=7FA6A0&title_color=C98A3E&ring_color=C98A3E" alt="stats" height="150">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TU-USUARIO&layout=compact&hide_border=true&hide_title=true&bg_color=181412&text_color=E8DFD1&title_color=C98A3E" alt="top languages" height="150">
-</div>
-
-<br>
-
-<div align="center">
-  <img src="./src/hello.svg" alt="say hi" width="100%">
-</div>
-
-Talk to me about scientific computing, an album you can't stop replaying, or the best café in a city you think I should visit.
+<sub><b>hardware</b></sub>
 
 <p>
-  <a href="https://www.linkedin.com/in/maxitq"><img src="https://img.shields.io/badge/LinkedIn-2E4A47?style=for-the-badge&logo=linkedin&logoColor=E8DFD1" alt="LinkedIn"></a>
-  <a href="mailto:TU-CORREO"><img src="https://img.shields.io/badge/Email-4A3527?style=for-the-badge&logo=maildotru&logoColor=E8DFD1" alt="Email"></a>
+  <img src="https://img.shields.io/badge/KiCad-4A3527?style=for-the-badge&logo=kicad&logoColor=E8DFD1" alt="KiCad">
+  <img src="https://img.shields.io/badge/ESP32-6B4E3A?style=for-the-badge&logo=espressif&logoColor=E8DFD1" alt="ESP32">
+  <img src="https://img.shields.io/badge/Arduino-3A4E4C?style=for-the-badge&logo=arduino&logoColor=E8DFD1" alt="Arduino">
 </p>
 
 <br>
 
-<div align="center">
-  <sub><i>2026 — powered by espresso, and the occasional matcha.</i></sub>
-</div>
+
+
+Talk to me about physics, an album you can't stop replaying, or the best café in a city you think I should visit.
+
