@@ -45,7 +45,6 @@ I like problems where the math has to survive contact with real data. Long term 
   <img src="https://img.shields.io/badge/SciPy-3A4E4C?style=for-the-badge&logo=scipy&logoColor=E8DFD1" alt="SciPy">
   <img src="https://img.shields.io/badge/pandas-2E4A47?style=for-the-badge&logo=pandas&logoColor=E8DFD1" alt="pandas">
   <img src="https://img.shields.io/badge/Matplotlib-4A3527?style=for-the-badge&logo=chartdotjs&logoColor=E8DFD1" alt="Matplotlib">
-  <img src="https://img.shields.io/badge/Plotly-6B4E3A?style=for-the-badge&logo=plotly&logoColor=E8DFD1" alt="Plotly">
   <img src="https://img.shields.io/badge/Jupyter-3A4E4C?style=for-the-badge&logo=jupyter&logoColor=E8DFD1" alt="Jupyter">
   <img src="https://img.shields.io/badge/Anaconda-2E4A47?style=for-the-badge&logo=anaconda&logoColor=E8DFD1" alt="Anaconda">
 </p>
@@ -56,7 +55,7 @@ I like problems where the math has to survive contact with real data. Long term 
   <img src="https://img.shields.io/badge/PyTorch-4A3527?style=for-the-badge&logo=pytorch&logoColor=E8DFD1" alt="PyTorch">
   <img src="https://img.shields.io/badge/scikit--learn-6B4E3A?style=for-the-badge&logo=scikitlearn&logoColor=E8DFD1" alt="scikit-learn">
   <img src="https://img.shields.io/badge/Scientific_ML-3A4E4C?style=for-the-badge&logo=tensorflow&logoColor=E8DFD1" alt="Scientific ML">
-  <img src="https://img.shields.io/badge/Claude_API-2E4A47?style=for-the-badge&logo=anthropic&logoColor=E8DFD1" alt="Claude API">
+  <img src="https://img.shields.io/badge/Claude_API-2E4A47?style=for-the-badge&logo=anthropic&logoColor=E8DFD1" alt="LLM engineering">
 </p>
 
 <sub><b>physics & hpc</b></sub>
@@ -73,11 +72,9 @@ I like problems where the math has to survive contact with real data. Long term 
 
 <p>
   <img src="https://img.shields.io/badge/Git-6B4E3A?style=for-the-badge&logo=git&logoColor=E8DFD1" alt="Git">
-  <img src="https://img.shields.io/badge/GitHub_Actions-3A4E4C?style=for-the-badge&logo=githubactions&logoColor=E8DFD1" alt="GitHub Actions">
   <img src="https://img.shields.io/badge/Docker-2E4A47?style=for-the-badge&logo=docker&logoColor=E8DFD1" alt="Docker">
   <img src="https://img.shields.io/badge/FastAPI-4A3527?style=for-the-badge&logo=fastapi&logoColor=E8DFD1" alt="FastAPI">
   <img src="https://img.shields.io/badge/Streamlit-6B4E3A?style=for-the-badge&logo=streamlit&logoColor=E8DFD1" alt="Streamlit">
-  <img src="https://img.shields.io/badge/VS_Code-3A4E4C?style=for-the-badge&logo=visualstudiocode&logoColor=E8DFD1" alt="VS Code">
   <img src="https://img.shields.io/badge/Overleaf-2E4A47?style=for-the-badge&logo=overleaf&logoColor=E8DFD1" alt="Overleaf">
 </p>
 
