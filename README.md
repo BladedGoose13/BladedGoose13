@@ -1,23 +1,4 @@
-
-
-I read a city through its coffee shops. Find the good one first, sit long enough to be a regular for an afternoon, then get lost in the streets around it. It has never once let me down.
-
-The rest of me: indie and chill rock, gym (not ur average joe i promise!), anime, and plenty of videogames and crafts!
-Coffee and bakery enjoyer! (and i believe connoisseur lol)
-I also LOVE travelling and getting to know new people.
-
-<p>
-  <img src="https://img.shields.io/badge/Valorant-6B4E3A?style=for-the-badge&logo=valorant&logoColor=E8DFD1" alt="Valorant">
-  <img src="https://img.shields.io/badge/League_of_Legends-3A4E4C?style=for-the-badge&logo=leagueoflegends&logoColor=E8DFD1" alt="League of Legends">
-  <img src="https://img.shields.io/badge/Spotify-2E4A47?style=for-the-badge&logo=spotify&logoColor=E8DFD1" alt="Spotify">
-  <img src="https://img.shields.io/badge/COFFEE-6F4E37?style=for-the-badge&logo=buymeacoffee&logoColor=white" alt = "Coffe">
-  <img src="https://img.shields.io/badge/Crunchyroll-6B4E3A?style=for-the-badge&logo=crunchyroll&logoColor=E8DFD1" alt="Crunchyroll">
-  <img src="https://img.shields.io/badge/Lifting-3A4E4C?style=for-the-badge&logo=strava&logoColor=E8DFD1" alt="Lifting">
-</p>
-
-<br>
-
-Work-wise? I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
+I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
 And love solving challenges and creating pipeline architectures, building autonomous systems is my specialty!
 
 
@@ -88,6 +69,20 @@ I like problems where the math has to survive contact with real data. Long term 
 
 <br>
 
+The rest of me: indie and chill rock, gym (not ur average joe i promise!), anime, and plenty of videogames and crafts!
+Coffee and bakery enjoyer! (and i believe connoisseur lol)
+I also LOVE travelling and getting to know new people.
+
+<p>
+  <img src="https://img.shields.io/badge/Valorant-6B4E3A?style=for-the-badge&logo=valorant&logoColor=E8DFD1" alt="Valorant">
+  <img src="https://img.shields.io/badge/League_of_Legends-3A4E4C?style=for-the-badge&logo=leagueoflegends&logoColor=E8DFD1" alt="League of Legends">
+  <img src="https://img.shields.io/badge/Spotify-2E4A47?style=for-the-badge&logo=spotify&logoColor=E8DFD1" alt="Spotify">
+  <img src="https://img.shields.io/badge/COFFEE-6F4E37?style=for-the-badge&logo=buymeacoffee&logoColor=white" alt = "Coffe">
+  <img src="https://img.shields.io/badge/Crunchyroll-6B4E3A?style=for-the-badge&logo=crunchyroll&logoColor=E8DFD1" alt="Crunchyroll">
+  <img src="https://img.shields.io/badge/Lifting-3A4E4C?style=for-the-badge&logo=strava&logoColor=E8DFD1" alt="Lifting">
+</p>
+
+<br>
 
 
 Talk to me about physics, an album you can't stop replaying, or the best café in a city you think I should visit.
