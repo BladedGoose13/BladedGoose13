@@ -36,7 +36,6 @@ I like problems where the math has to survive contact with real data. Long term 
   <img src="https://img.shields.io/badge/PyTorch-4A3527?style=for-the-badge&logo=pytorch&logoColor=E8DFD1" alt="PyTorch">
   <img src="https://img.shields.io/badge/scikit--learn-6B4E3A?style=for-the-badge&logo=scikitlearn&logoColor=E8DFD1" alt="scikit-learn">
   <img src="https://img.shields.io/badge/Scientific_ML-3A4E4C?style=for-the-badge&logo=tensorflow&logoColor=E8DFD1" alt="Scientific ML">
-  <img src="https://img.shields.io/badge/Claude_API-2E4A47?style=for-the-badge&logo=anthropic&logoColor=E8DFD1" alt="LLM engineering">
 </p>
 
 <sub><b>physics & hpc</b></sub>
