@@ -4,7 +4,7 @@ And love solving challenges and creating pipeline architectures, building autono
 
 **Computational physics · quantitative research · scientific computing.**
 
-I like problems where the math has to survive contact with real data. Long term I want to be doing research inside deep tech, somewhere computation is the product rather than the paperwork.
+I like problems where the math has to survive contact with real data. Long term I want to be doing research inside deep tech or R&D, somewhere computation is the product rather than the paperwork.
 
 <br>
 
