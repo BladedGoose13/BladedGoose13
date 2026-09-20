@@ -15,8 +15,9 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from palette import (ACCENT, ACCENT_SOFT, CARD, CARD_2, EDGE, EMPTY, FONT,
-                     INK, INK_2, INK_3, RAMP, ramp)
+from palette import (ACCENT, ACCENT_SOFT, CARD_2, EMPTY, FONT, GLASS_FILL,
+                     GLASS_HI, GLASS_OP, GLASS_OP_2, INK, INK_2, INK_3, RAMP,
+                     ramp)
 
 F = '"%s"' % FONT
 
@@ -25,12 +26,19 @@ def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def card(x, y, w, h, title, note=""):
-    """A kraft card with a soft offset shadow -- the 'stacked paper' motif."""
-    o = ['<rect x="%d" y="%d" width="%d" height="%d" rx="14" fill="%s" opacity=".55"/>'
-         % (x + 3, y + 4, w, h, EDGE)]
-    o.append('<rect x="%d" y="%d" width="%d" height="%d" rx="14" fill="%s" stroke="%s"/>'
-             % (x, y, w, h, CARD, EDGE))
+def card(x, y, w, h, title, note="", seed=0):
+    """A pane of glass: translucent fill, a lit top edge, a 1px rim.
+
+    The fill is deliberately weak (7%). What makes it read as glass is the
+    colour blobs behind it showing through, plus the highlight along the top
+    edge -- the same two cues a real frosted panel gives you.
+    """
+    o = ['<rect x="%d" y="%d" width="%d" height="%d" rx="16" fill="%s" fill-opacity="%.3f"/>'
+         % (x, y, w, h, GLASS_FILL, GLASS_OP)]
+    o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="15.5" fill="none" '
+             'stroke="url(#edge_%d)" stroke-width="1"/>' % (x + .5, y + .5, w - 1, h - 1, seed))
+    o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity="%.2f" stroke-width="1"/>'
+             % (x + 16, y + 1.5, x + w - 16, GLASS_FILL, GLASS_HI))
     o.append('<text x="%d" y="%d" font-family=%s font-size="15" font-weight="700" fill="%s">'
              '%s</text>' % (x + 20, y + 32, F, INK, esc(title)))
     if note:
@@ -39,12 +47,14 @@ def card(x, y, w, h, title, note=""):
     return "".join(o)
 
 
-def stat(x, y, w, label, value, unit=""):
+def stat(x, y, w, label, value, unit="", seed=0):
     """A stat tile. The number IS the chart -- no one-bar bar charts."""
-    o = ['<rect x="%d" y="%d" width="%d" height="96" rx="14" fill="%s" opacity=".55"/>'
-         % (x + 3, y + 4, w, EDGE)]
-    o.append('<rect x="%d" y="%d" width="%d" height="96" rx="14" fill="%s" stroke="%s"/>'
-             % (x, y, w, CARD, EDGE))
+    o = ['<rect x="%d" y="%d" width="%d" height="96" rx="16" fill="%s" fill-opacity="%.3f"/>'
+         % (x, y, w, GLASS_FILL, GLASS_OP)]
+    o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="95" rx="15.5" fill="none" '
+             'stroke="url(#edge_%d)" stroke-width="1"/>' % (x + .5, y + .5, w - 1, seed))
+    o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity="%.2f" stroke-width="1"/>'
+             % (x + 14, y + 1.5, x + w - 14, GLASS_FILL, GLASS_HI))
     o.append('<text x="%d" y="%d" font-family=%s font-size="12" fill="%s">%s</text>'
              % (x + 20, y + 30, F, INK_3, esc(label)))
     o.append('<text x="%d" y="%d" font-family=%s font-size="38" font-weight="700" fill="%s">'
@@ -80,7 +90,7 @@ def donut(cx, cy, r_out, r_in, parts, total_label=""):
         if a1 <= a0:
             a1 = a0 + 0.004
         x0, y0, x1, y1, large = _arc(cx, cy, mid, a0, a1)
-        col = ramp(i / max(1, len(parts) - 1))
+        col = ramp(1.0 - i / max(1, len(parts) - 1))
         o.append('<path d="M%.2f,%.2f A%.2f,%.2f 0 %d 1 %.2f,%.2f" fill="none" stroke="%s" '
                  'stroke-width="%.1f"/>' % (x0, y0, mid, mid, large, x1, y1, col, width))
         ang += sweep
@@ -96,7 +106,7 @@ def legend(x, y, items, pitch=26):
     for i, (name, val) in enumerate(items):
         yy = y + i * pitch
         o.append('<rect x="%d" y="%d" width="12" height="12" rx="3" fill="%s"/>'
-                 % (x, yy - 10, ramp(i / max(1, len(items) - 1))))
+                 % (x, yy - 10, ramp(1.0 - i / max(1, len(items) - 1))))
         o.append('<text x="%d" y="%d" font-family=%s font-size="13" fill="%s">%s</text>'
                  % (x + 20, yy, F, INK_2, esc(name)))
         o.append('<text x="%d" y="%d" font-family=%s font-size="13" font-weight="700" '
@@ -121,15 +131,18 @@ def area(x, y, w, h, values, x_labels=None, peak_label=True):
     # recessive solid gridlines + value ticks
     for frac in (0, 0.5, 1.0):
         gy = y + h - frac * h
-        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-width="1"/>' % (x, gy, x + w, EDGE))
+        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity=".12" stroke-width="1"/>'
+                 % (x, gy, x + w, GLASS_FILL))
         o.append('<text x="%d" y="%.1f" text-anchor="end" font-family=%s font-size="10.5" '
                  'fill="%s">%d</text>' % (x - 8, gy + 4, F, INK_3, round(mx * frac)))
 
     pts = [(px(i), py(v)) for i, v in enumerate(values)]
     fill = "M%.1f,%.1f " % (pts[0][0], y + h) + " ".join("L%.1f,%.1f" % p for p in pts) \
            + " L%.1f,%.1f Z" % (pts[-1][0], y + h)
-    o.append('<path d="%s" fill="%s" opacity=".38"/>' % (fill, ACCENT_SOFT))
+    o.append('<path d="%s" fill="%s" opacity=".45"/>' % (fill, ACCENT_SOFT))
     line = "M%.1f,%.1f " % pts[0] + " ".join("L%.1f,%.1f" % p for p in pts[1:])
+    o.append('<path d="%s" fill="none" stroke="%s" stroke-width="5" stroke-linejoin="round" '
+             'stroke-linecap="round" opacity=".22"/>' % (line, ACCENT))      # glow
     o.append('<path d="%s" fill="none" stroke="%s" stroke-width="2" stroke-linejoin="round" '
              'stroke-linecap="round"/>' % (line, ACCENT))
 
@@ -137,7 +150,7 @@ def area(x, y, w, h, values, x_labels=None, peak_label=True):
         i = values.index(mx)
         cx_, cy_ = px(i), py(mx)
         o.append('<circle cx="%.1f" cy="%.1f" r="4.5" fill="%s" stroke="%s" stroke-width="2"/>'
-                 % (cx_, cy_, ACCENT, CARD))
+                 % (cx_, cy_, ACCENT, "#1D1824"))
         anchor = "end" if cx_ > x + w * 0.75 else "start"
         dx = -10 if anchor == "end" else 10
         o.append('<text x="%.1f" y="%.1f" text-anchor="%s" font-family=%s font-size="11.5" '
@@ -163,8 +176,8 @@ def hbars(x, y, w, rows, pitch=34, value_fmt=str):
         yy = y + i * pitch
         o.append('<text x="%d" y="%d" font-family=%s font-size="13" fill="%s">%s</text>'
                  % (x, yy, F, INK_2, esc(name)))
-        o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s"/>'
-                 % (x + 200, yy - 9, track, CARD_2))
+        o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s" '
+                 'fill-opacity="%.3f"/>' % (x + 200, yy - 9, track, GLASS_FILL, GLASS_OP_2))
         bw = max(6, int(track * val / mx))
         o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s">'
                  '<animate attributeName="width" values="0;%d" dur=".8s" begin="%.2fs" '
@@ -217,7 +230,8 @@ def vbars(x, y, w, h, rows, peak_label=True):
     bw = max(6, slot - 8)                      # 8px of surface between columns
     for frac in (0, 0.5, 1.0):                 # hairline, solid, recessive
         gy = y + h - frac * h
-        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-width="1"/>' % (x, gy, x + w, EDGE))
+        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity=".12" stroke-width="1"/>'
+                 % (x, gy, x + w, GLASS_FILL))
         o.append('<text x="%d" y="%.1f" text-anchor="end" font-family=%s font-size="10.5" '
                  'fill="%s">%d</text>' % (x - 8, gy + 4, F, INK_3, round(mx * frac)))
     for i, (label, val) in enumerate(rows):

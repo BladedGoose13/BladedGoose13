@@ -10,8 +10,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from palette import (ACCENT, ACCENT_SOFT, CARD, CARD_2, CREAM, EDGE, FONT,
-                     INK, INK_2, INK_3, PAPER, RAMP, SAGE, SHADOW)
+from palette import (ACCENT, ACCENT_SOFT, CREAM, FONT, GLASS_FILL, GLASS_HI,
+                     GLASS_OP, INK, INK_2, INK_3, RAMP, SAGE, backdrop)
 
 W, H = 1200, 340
 F = '"%s"' % FONT
@@ -42,12 +42,7 @@ def build():
       'aria-label="How a project moves: ingest, check, simulate, reduce, learn, serve, '
       'with the model choosing the next simulation">' % (W, H, W, H))
 
-    a('<defs>')
-    a('<pattern id="grain2" width="7" height="7" patternUnits="userSpaceOnUse">'
-      '<circle cx="1" cy="1" r=".6" fill="%s" opacity=".20"/></pattern>' % SHADOW)
-    a('</defs>')
-    a('<rect width="%d" height="%d" rx="16" fill="%s"/>' % (W, H, PAPER))
-    a('<rect width="%d" height="%d" rx="16" fill="url(#grain2)"/>' % (W, H))
+    a(backdrop(W, H, seed=5))
 
     a('<text x="%d" y="46" font-family=%s font-size="17" font-weight="700" fill="%s">'
       'how a project actually moves</text>' % (PAD, F, INK))
@@ -59,7 +54,8 @@ def build():
         x1, x2 = bx(i) + BOX_W, bx(i + 1)
         y = BOX_Y + BOX_H / 2
         a('<path id="r%d" d="M%.1f %.1f H%.1f" stroke="%s" stroke-width="2.5" fill="none" '
-          'stroke-linecap="round" stroke-dasharray="1 7"/>' % (i, x1 + 3, y, x2 - 6, EDGE))
+          'stroke-linecap="round" stroke-dasharray="1 7" opacity=".45"/>'
+          % (i, x1 + 3, y, x2 - 6, GLASS_FILL))
         a('<path d="M%.1f %.1f l-6 -4.5 v9 z" fill="%s"/>' % (x2 - 3, y, ACCENT_SOFT))
         a('<circle r="4" fill="%s"><animateMotion dur="2.2s" begin="%.2fs" '
           'repeatCount="indefinite" calcMode="linear">'
@@ -70,10 +66,13 @@ def build():
 
     for i, (title, sub) in enumerate(STAGES):
         x = bx(i)
-        a('<rect x="%.1f" y="%d" width="%d" height="%d" rx="14" fill="%s" opacity=".55"/>'
-          % (x + 3, BOX_Y + 4, BOX_W, BOX_H, EDGE))
-        a('<rect x="%.1f" y="%d" width="%d" height="%d" rx="14" fill="%s" stroke="%s"/>'
-          % (x, BOX_Y, BOX_W, BOX_H, CARD, EDGE))
+        a('<rect x="%.1f" y="%d" width="%d" height="%d" rx="16" fill="%s" '
+          'fill-opacity="%.3f"/>' % (x, BOX_Y, BOX_W, BOX_H, GLASS_FILL, GLASS_OP))
+        a('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="15.5" fill="none" '
+          'stroke="url(#edge_5)" stroke-width="1"/>'
+          % (x + .5, BOX_Y + .5, BOX_W - 1, BOX_H - 1))
+        a('<path d="M%.1f %.1f H%.1f" stroke="%s" stroke-opacity="%.2f" stroke-width="1"/>'
+          % (x + 14, BOX_Y + 1.5, x + BOX_W - 14, GLASS_FILL, GLASS_HI))
         a('<circle cx="%.1f" cy="%d" r="13" fill="%s"/>' % (x + 30, BOX_Y + 30, RAMP[min(i, 4)]))
         a('<text x="%.1f" y="%d" text-anchor="middle" font-family=%s font-size="12" '
           'font-weight="700" fill="%s">%d</text>' % (x + 30, BOX_Y + 35, F, CREAM, i + 1))
@@ -108,8 +107,8 @@ def build():
     a('<text x="%.1f" y="%d" text-anchor="middle" font-family=%s font-size="12.5" fill="%s">'
       'the model picks what to simulate next, so i don’t have to</text>'
       % ((sx + ex) / 2, ly + 26, F, INK_2))
-    a('<rect x="1" y="1" width="%d" height="%d" rx="16" fill="none" stroke="%s" '
-      'stroke-width="2"/>' % (W - 2, H - 2, EDGE))
+    a('<rect x=".5" y=".5" width="%.1f" height="%.1f" rx="15.5" fill="none" '
+      'stroke="url(#edge_5)" stroke-width="1"/>' % (W - 1, H - 1))
     a('</svg>')
     return "".join(o)
 

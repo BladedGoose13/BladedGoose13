@@ -7,7 +7,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from palette import ACCENT, CARD, EDGE, EMPTY, FONT, INK_3, PAPER, RAMP
+from palette import ACCENT, EMPTY, FONT, GLASS_FILL, GLASS_OP, INK_3, RAMP, backdrop
 
 W, H = 900, 220
 CELL, GAP = 11, 3
@@ -21,9 +21,11 @@ def build():
     o = ['<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" '
          'role="img" aria-label="Contribution snake, drawn on the first scheduled run">'
          % (W, H, W, H)]
-    o.append('<rect width="%d" height="%d" rx="16" fill="%s"/>' % (W, H, PAPER))
-    o.append('<rect x="14" y="14" width="%d" height="%d" rx="12" fill="%s" stroke="%s"/>'
-             % (W - 28, H - 28, CARD, EDGE))
+    o.append(backdrop(W, H, seed=6))
+    o.append('<rect x="14" y="14" width="%d" height="%d" rx="14" fill="%s" '
+             'fill-opacity="%.3f"/>' % (W - 28, H - 28, GLASS_FILL, GLASS_OP))
+    o.append('<rect x="14.5" y="14.5" width="%.1f" height="%.1f" rx="13.5" fill="none" '
+             'stroke="url(#edge_6)" stroke-width="1"/>' % (W - 29, H - 29))
     for c in range(COLS):
         for r in range(ROWS):
             o.append('<rect x="%.1f" y="%.1f" width="%d" height="%d" rx="2.5" fill="%s"/>'

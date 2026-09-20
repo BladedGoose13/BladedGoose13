@@ -22,7 +22,7 @@ import urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import charts as ch
 from charts import F
-from palette import (ACCENT, CARD, EDGE, INK, INK_2, INK_3, PAPER)
+from palette import ACCENT, INK, INK_2, INK_3, backdrop
 
 LOGIN = os.environ.get("PROFILE_LOGIN", "BladedGoose13")
 API = "https://api.github.com/graphql"
@@ -189,18 +189,19 @@ def head(o, w, title, note):
              '%s</text>' % (w - 24, F, INK_3, note))
 
 
-def open_svg(w, h, label):
+def open_svg(w, h, label, seed=0):
+    """Open the canvas and lay down the ground the glass sits on."""
     return ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" '
-            'role="img" aria-label="%s"><rect width="%d" height="%d" rx="16" fill="%s"/>'
-            % (w, h, w, h, label, w, h, PAPER))
+            'role="img" aria-label="%s">%s' % (w, h, w, h, label, backdrop(w, h, seed)))
 
 
 # --------------------------------------------------------------------------
 def build_dashboard(d):
+    SEED = 1
     W, H = 1200, 432
     now = dt.datetime.now(dt.timezone.utc)
     note = ("rebuilt %s" % now.strftime("%d %b %Y").lower()) if d["live"] else "awaiting first sync"
-    o = [open_svg(W, H, "GitHub activity summary for %s" % LOGIN)]
+    o = [open_svg(W, H, "GitHub activity summary for %s" % LOGIN, SEED)]
     head(o, W, "at a glance", note)
 
     tiles = [("contributions", human(d["contribs"]), "past year"),
@@ -209,10 +210,10 @@ def build_dashboard(d):
              ("longest streak", human(d["best"]), "days")]
     tw, gap = 279, 14
     for i, (lab, val, unit) in enumerate(tiles):
-        o.append(ch.stat(20 + i * (tw + gap), 50, tw, lab, val, unit))
+        o.append(ch.stat(20 + i * (tw + gap), 50, tw, lab, val, unit, seed=SEED))
 
     # -- language share: part-to-whole, ordered by size -> sequential ramp --
-    o.append(ch.card(20, 168, 460, 244, "what i write in", "share of source"))
+    o.append(ch.card(20, 168, 460, 244, "what i write in", "share of source", seed=SEED))
     langs = d["langs"][:5]
     total = sum(v for _, v in langs) or 1
     o.append(ch.donut(128, 300, 72, 46,
@@ -222,7 +223,7 @@ def build_dashboard(d):
                        [(n, "%.0f%%" % (100.0 * v / total)) for n, v in langs]))
 
     # -- cadence: trend over time, one series -----------------------------
-    o.append(ch.card(494, 168, 686, 244, "when i actually commit", "weekly, past year"))
+    o.append(ch.card(494, 168, 686, 244, "when i actually commit", "weekly, past year", seed=SEED))
     weekly = [sum(x["contributionCount"] for x in wk) for wk in d["weeks"]]
     o.append(ch.area(560, 216, 580, 138, weekly,
                      x_labels=month_labels(d["weeks"])[::2]))
@@ -231,46 +232,41 @@ def build_dashboard(d):
 
 
 def build_activity(d):
-    W, H = 1200, 510
-    o = [open_svg(W, H, "Contribution calendar and repository sizes for %s" % LOGIN)]
-    head(o, W, "the last year, day by day",
-         "%d contributions" % d["contribs"] if d["contribs"] else "awaiting first sync")
+    """Public repositories by size.
 
-    o.append(ch.card(20, 46, 1160, 190, "", ""))
-    if d["weeks"]:
-        gx, gy = 74, 92
-        for i, lab in month_labels(d["weeks"]):
-            o.append('<text x="%d" y="%d" font-family=%s font-size="10.5" fill="%s">%s</text>'
-                     % (gx + i * 14, gy - 8, F, INK_3, lab))
-        for wd, lab in ((1, "mon"), (3, "wed"), (5, "fri")):
-            o.append('<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="10" '
-                     'fill="%s">%s</text>' % (gx - 8, gy + wd * 14 + 9, F, INK_3, lab))
-        o.append(ch.heatmap(gx, gy, d["weeks"], d["peak"]))
-        o.append(ch.heat_legend(1010, 198))
-    else:
-        o.append('<text x="74" y="140" font-family=%s font-size="13" fill="%s">the calendar '
-                 'fills in on the first scheduled sync</text>' % (F, INK_3))
-
-    o.append(ch.card(20, 252, 1160, 178, "what i’ve been building", "public repos by size"))
-    o.append(ch.hbars(50, 306, 1100, d["sizes"], pitch=30, value_fmt=human_bytes))
-    o.append('</svg>')
+    The contribution calendar used to live here too, but build_calendar now
+    owns it full width, so keeping a copy here was duplicated ink. Card
+    height is derived from the row count rather than hard-coded -- the old
+    fixed 178px silently clipped the last two repos.
+    """
+    SEED = 2
+    rows = d["sizes"][:6]
+    pitch, top = 29, 92
+    card_h = top - 46 + pitch * len(rows) + 16
+    W, H = 1200, 46 + card_h + 24
+    o = [open_svg(W, H, "Public repositories by size for %s" % LOGIN, SEED)]
+    head(o, W, "what i\u2019ve been building", "public repos, by size")
+    o.append(ch.card(20, 46, 1160, card_h, "", "", seed=SEED))
+    o.append(ch.hbars(50, top, 1100, rows, pitch=pitch, value_fmt=human_bytes))
+    o.append("</svg>")
     return "".join(o)
 
 
 def build_focus(d):
+    SEED = 3
     """Tall panel, sized to stand beside the vertical artwork.
 
     Two cuts of one measure -- contributions by month and by weekday. Same
     units, separate plots, one axis each; never two scales on one plot.
     """
     W, H = 540, 640
-    o = [open_svg(W, H, "Contributions by month and by weekday for %s" % LOGIN)]
+    o = [open_svg(W, H, "Contributions by month and by weekday for %s" % LOGIN, SEED)]
     head(o, W, "when the work happens", "past year")
 
-    o.append(ch.card(16, 48, W - 32, 274, "by month", "contributions"))
+    o.append(ch.card(16, 48, W - 32, 274, "by month", "contributions", seed=SEED))
     o.append(ch.vbars(66, 100, W - 100, 178, d["months"]))
 
-    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "contributions"))
+    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "contributions", seed=SEED))
     if d["weekdays"]:
         o.append(ch.hbars(46, 396, W - 76, d["weekdays"], pitch=31, value_fmt=str))
     else:
@@ -281,13 +277,14 @@ def build_focus(d):
 
 
 def build_calendar(d):
+    SEED = 4
     """The traditional contribution graph, full width."""
     W, H = 1200, 268
     cell, gap = 13, 4
-    o = [open_svg(W, H, "A year of contributions, day by day, for %s" % LOGIN)]
+    o = [open_svg(W, H, "A year of contributions, day by day, for %s" % LOGIN, SEED)]
     head(o, W, "the last year, day by day",
          ("%d contributions" % d["contribs"]) if d["contribs"] else "awaiting first sync")
-    o.append(ch.card(16, 48, W - 32, 204, "", ""))
+    o.append(ch.card(16, 48, W - 32, 204, "", "", seed=SEED))
     gx, gy = 96, 96
     if d["weeks"]:
         for i, lab in month_labels(d["weeks"]):

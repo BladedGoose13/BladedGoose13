@@ -15,10 +15,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pixel import Canvas, sprite_svg
 
 # -- night palette, tuned to sit beside the cafe artwork --------------------
-NIGHT = "#1A2636"
-WALL = "#243447"
-WALL_D = "#1B2735"
-FLOOR = "#2E2119"
+NIGHT = "#140B1F"
+WALL = "#2A1F3D"
+WALL_D = "#1E1530"
+FLOOR = "#2A1C24"
 WOOD_D = "#3E2A1E"
 WOOD = "#6B4A2F"
 WOOD_L = "#8B6340"
@@ -32,20 +32,20 @@ COF = "#5C3A20"
 CREMA = "#C08B5C"
 CERAM = "#C4553A"
 CERAM_D = "#8E3A26"
-SCREEN = "#14263A"
-CYAN = "#6BC5D9"
+SCREEN = "#1A1030"
+CYAN = "#67E8F9"
 AMBER = "#E8A34B"
 LED_G = "#7FD97F"
 LED_R = "#E85D5D"
-METAL = "#39434F"
-METAL_L = "#59677A"
+METAL = "#3A3050"
+METAL_L = "#6B5C8A"
 PLANT = "#4A7A4A"
 PLANT_L = "#6BA36B"
 PAPER = "#EFE2C4"
 PAPER_S = "#CDBC98"
 INKC = "#5A4632"
-STAR = "#DCE6F2"
-SHADOW = "#121A25"
+STAR = "#EADCF7"
+SHADOW = "#120A1C"
 
 ART = "assets/art"
 SCALE = 5
@@ -98,7 +98,7 @@ def scene_coffee(phase):
     c.rect(34, 9, 5, 1, LAMP_H)
     c.disc(36, 9, 2, WARM)
     c.rect(4, 14, 18, 2, WOOD)
-    c.rect(6, 8, 7, 6, "#3A4A5C")
+    c.rect(6, 8, 7, 6, "#3E3157")
     c.rect(7, 9, 5, 4, COF_D)
     for bx, by in ((8, 11), (10, 10), (9, 12), (11, 12)):
         c.set(bx, by, COF)
@@ -134,7 +134,7 @@ def scene_study(phase):
     c.disc(24, 10, 3, PAPER)
     c.disc(22, 9, 3, NIGHT)
     c.rect(38, 8, 30, 2, WOOD)
-    for i, col in enumerate((CERAM_D, PLANT, WOOD_H, "#4A5C7A", CERAM)):
+    for i, col in enumerate((CERAM_D, PLANT, WOOD_H, "#5A4A82", CERAM)):
         c.rect(40 + i * 4, 2, 3, 6, col)
         c.set(41 + i * 4, 3, WARM)
 
@@ -181,7 +181,7 @@ def scene_hpc(phase):
     c.rect(0, 0, W, 4, NIGHT)
     c.rect(10, 6, 34, 26, METAL)
     c.rect(12, 8, 30, 22, SCREEN)
-    c.hline(12, 41, 19, "#20395A")            # Fermi level
+    c.hline(12, 41, 19, "#3A2059")            # Fermi level
     for k in range(4):
         base = 11 + k * 4
         for x in range(12, 42):
@@ -200,7 +200,7 @@ def scene_hpc(phase):
     c.ring(69, 22, 3, METAL_L)
     c.rect(0, 38, W, 3, WOOD_L)
     c.rect(0, 38, W, 1, WOOD_H)
-    c.hline(10, 44, 38, "#7E96A8")            # desk under the screens, cool-lit
+    c.hline(10, 44, 38, "#8A76B4")            # desk under the screens, cool-lit
     c.rect(0, 41, W, H - 41, WOOD_D)
     c.rect(14, 42, 26, 5, METAL)
     for r in range(3):
