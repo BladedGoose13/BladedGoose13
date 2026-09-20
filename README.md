@@ -63,29 +63,45 @@ So every stage restarts clean, and the expensive part only runs on the configura
 
 <!-- STATS:START -->
 
+<!-- generated: live -->
+
 | | past year |
 |---|--:|
-| contributions | **—** |
-| commits | **—** |
-| public repos | **6** |
-| longest streak | **—** days |
+| contributions | **222** |
+| commits | **208** |
+| public repos | **7** |
+| longest streak | **4** days |
+
+**by month** &nbsp; `▅█▁▅▃▂▂▇▂▂▁▂` &nbsp; peak **56**
+
+| day | | |
+|---|---|--:|
+| sun | `████████··············` | 20 |
+| mon | `████████████··········` | 31 |
+| tue | `██████████████████████` | 55 |
+| wed | `██████················` | 15 |
+| thu | `██████████············` | 24 |
+| fri | `██████████████········` | 36 |
+| sat | `████████████████······` | 41 |
 
 | language | | share |
 |---|---|--:|
-| Gnuplot | `██████████████████████` | 85% |
-| HTML | `███···················` | 12% |
-| Python | `█·····················` | 3% |
+| Gnuplot | `██████████████████████` | 42% |
+| HTML | `█████████████·········` | 24% |
+| Python | `██████████············` | 19% |
+| Jupyter Notebook | `████··················` | 8% |
+| CSS | `████··················` | 7% |
 
-<sub>113 MB of source across 6 public repos</sub>
+<sub>1 MB of source across 7 public repos</sub>
 
 | repo | | size |
 |---|---|--:|
-| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | `██████████████████████` | 96 MB |
-| [PathWise](https://github.com/BladedGoose13/PathWise) | `███···················` | 14 MB |
-| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | `█·····················` | 3 MB |
-| [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | `█·····················` | 1 MB |
-| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | `█·····················` | 429 KB |
-| [Portfolio](https://github.com/BladedGoose13/Portfolio) | `█·····················` | 23 KB |
+| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | `██████████████████████` | 612 KB |
+| [PathWise](https://github.com/BladedGoose13/PathWise) | `██████████████████····` | 491 KB |
+| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | `██····················` | 63 KB |
+| [Portfolio](https://github.com/BladedGoose13/Portfolio) | `█·····················` | 28 KB |
+| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | `█·····················` | 25 KB |
+| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | `█·····················` | 5 KB |
 
 <!-- STATS:END -->
 
