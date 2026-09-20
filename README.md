@@ -67,8 +67,8 @@ So every stage restarts clean, and the expensive part only runs on the configura
 
 | | past year |
 |---|--:|
-| contributions | **222** |
-| commits | **208** |
+| contributions | **224** |
+| commits | **209** |
 | public repos | **7** |
 | longest streak | **4** days |
 
@@ -76,7 +76,7 @@ So every stage restarts clean, and the expensive part only runs on the configura
 
 | day | | |
 |---|---|--:|
-| sun | `████████··············` | 20 |
+| sun | `█████████·············` | 22 |
 | mon | `████████████··········` | 31 |
 | tue | `██████████████████████` | 55 |
 | wed | `██████················` | 15 |
@@ -98,7 +98,7 @@ So every stage restarts clean, and the expensive part only runs on the configura
 |---|---|--:|
 | [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | `██████████████████████` | 612 KB |
 | [PathWise](https://github.com/BladedGoose13/PathWise) | `██████████████████····` | 491 KB |
-| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | `██····················` | 63 KB |
+| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | `██····················` | 62 KB |
 | [Portfolio](https://github.com/BladedGoose13/Portfolio) | `█·····················` | 28 KB |
 | [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | `█·····················` | 25 KB |
 | [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | `█·····················` | 5 KB |
@@ -118,16 +118,37 @@ So every stage restarts clean, and the expensive part only runs on the configura
 <!-- EXTRA:START -->
 
 <details>
+<summary><sub><b>month by month</b></sub></summary>
+
+| month | | |
+|---|---|--:|
+| oct | `████████████··········` | 31 |
+| nov | `██████████████████████` | 56 |
+| dec | `······················` | 0 |
+| jan | `████████████··········` | 30 |
+| feb | `█████·················` | 12 |
+| mar | `██····················` | 5 |
+| apr | `████··················` | 11 |
+| may | `████████████████████··` | 50 |
+| jun | `██····················` | 6 |
+| jul | `████··················` | 10 |
+| aug | `█·····················` | 3 |
+| sep | `████··················` | 10 |
+
+</details>
+
+<details>
 <summary><sub><b>every public repo</b></sub></summary>
 
 | repo | language | | size | |
 |---|---|---|--:|--:|
-| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 96 MB | ★ 1 |
-| [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `██············` | 14 MB | ★ 1 |
-| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 3 MB |  |
-| [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | Other | `█·············` | 1 MB |  |
-| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 429 KB |  |
-| [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 23 KB |  |
+| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 612 KB | ★ 1 |
+| [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `███████████···` | 491 KB | ★ 1 |
+| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 62 KB |  |
+| [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 28 KB |  |
+| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 25 KB |  |
+| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
+| [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
 </details>
 
