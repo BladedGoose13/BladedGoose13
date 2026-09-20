@@ -198,3 +198,42 @@ def heat_legend(x, y, cell=11, gap=3):
     o.append('<text x="%d" y="%d" font-family=%s font-size="11" fill="%s">more</text>'
              % (x + 6 * (cell + gap) + 10, y + cell - 1, F, INK_3))
     return "".join(o)
+
+
+def vbars(x, y, w, h, rows, peak_label=True):
+    """Columns for magnitude across an ordered time axis.
+
+    One measure, one hue: the categories are months, which carry no identity
+    of their own, so colouring them differently would be decoration. Only
+    the peak is direct-labelled -- a number over every column is noise.
+    """
+    o = []
+    if not rows:
+        return ('<text x="%d" y="%d" font-family=%s font-size="12.5" fill="%s">fills in after '
+                'the first sync</text>' % (x, y + h / 2, F, INK_3))
+    mx = max(v for _, v in rows) or 1
+    n = len(rows)
+    slot = w / float(n)
+    bw = max(6, slot - 8)                      # 8px of surface between columns
+    for frac in (0, 0.5, 1.0):                 # hairline, solid, recessive
+        gy = y + h - frac * h
+        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-width="1"/>' % (x, gy, x + w, EDGE))
+        o.append('<text x="%d" y="%.1f" text-anchor="end" font-family=%s font-size="10.5" '
+                 'fill="%s">%d</text>' % (x - 8, gy + 4, F, INK_3, round(mx * frac)))
+    for i, (label, val) in enumerate(rows):
+        bh = max(2, (val / mx) * h)
+        bx = x + i * slot + (slot - bw) / 2.0
+        by = y + h - bh
+        o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="4" fill="%s">'
+                 '<animate attributeName="height" values="0;%.1f" dur=".7s" begin="%.2fs" '
+                 'fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1"/>'
+                 '<animate attributeName="y" values="%.1f;%.1f" dur=".7s" begin="%.2fs" '
+                 'fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1"/></rect>'
+                 % (bx, by, bw, bh, ACCENT, bh, 0.15 + 0.04 * i, y + h, by, 0.15 + 0.04 * i))
+        o.append('<text x="%.1f" y="%d" text-anchor="middle" font-family=%s font-size="10" '
+                 'fill="%s">%s</text>' % (bx + bw / 2.0, y + h + 17, F, INK_3, esc(label)))
+        if peak_label and val == mx:
+            o.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-family=%s '
+                     'font-size="11.5" font-weight="700" fill="%s">%d</text>'
+                     % (bx + bw / 2.0, by - 7, F, INK_2, val))
+    return "".join(o)

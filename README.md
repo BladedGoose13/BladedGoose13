@@ -75,15 +75,60 @@ I like problems where the math has to survive contact with real data. Long term 
 
 <sub><b>how i build things</b></sub>
 
-<img src="assets/pipeline.svg" alt="How a project moves: ingest, check, simulate, reduce, learn, serve — and the model picks what to simulate next" width="100%">
+<table>
+<tr>
+<td width="34%">
+
+<img src="assets/art/workstation.jpg" width="100%" alt="A workstation at night, three monitors lit against a rainy city skyline">
+
+</td>
+<td width="66%">
+
+Most of my projects end up shaped the same way: something measures or simulates the world, something else checks it hasn't drifted, and then a model decides what is worth computing next. I care much more about the second and third parts than people usually expect.
+
+The rule I don't bend is that **nothing important lives only on my laptop**. If a figure can't be traced back to the exact run that made it, it isn't a result yet, it's a screenshot.
+
+So every stage is idempotent, restartable, and containerised, inputs are content-addressed, and the whole thing is happy to be killed halfway through and resumed. That's the part I actually enjoy building.
+
+What that buys me, in practice:
+
+- a run that dies at 3am resumes instead of restarting
+- swapping a pseudopotential doesn't invalidate the other 200 jobs
+- the plot in the paper and the run that produced it are the same object
+- the expensive part (DFT) only runs on the configurations the surrogate is actually unsure about
+
+<sub>ingest &#183; check &#183; simulate &#183; reduce &#183; learn &#183; serve &#8212; and the loop back to the start</sub>
+
+</td>
+</tr>
+</table>
+
+<img src="assets/pipeline.svg" alt="How a project moves: ingest, check, simulate, reduce, learn, serve, with the model choosing what to simulate next" width="100%">
 
 <br>
 
 <sub><b>the numbers</b></sub>
 
-<img src="assets/dashboard.svg" alt="Contributions, commits, public repos and longest streak, plus language share and weekly commit cadence" width="100%">
+<table>
+<tr>
+<td width="60%">
 
-<img src="assets/activity.svg" alt="A year of contributions day by day, and public repositories by size" width="100%">
+<img src="assets/focus.svg" width="100%" alt="Contributions by month and by weekday over the past year">
+
+</td>
+<td width="40%">
+
+<img src="assets/art/nook.jpg" width="100%" alt="A pixel-art study nook at night: desk lamp, open book, coffee, and a window full of stars">
+
+</td>
+</tr>
+</table>
+
+<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+
+<img src="assets/dashboard.svg" alt="Contributions, commits, public repos and longest streak, with language share and weekly commit cadence" width="100%">
+
+<img src="assets/activity.svg" alt="Public repositories by size" width="100%">
 
 <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 
@@ -91,7 +136,19 @@ I like problems where the math has to survive contact with real data. Long term 
   <img src="https://streak-stats.demolab.com?user=BladedGoose13&background=EFE4D0&border=DFCDB0&stroke=DFCDB0&ring=C0562F&fire=C0562F&currStreakNum=3D2B1F&sideNums=3D2B1F&currStreakLabel=C0562F&sideLabels=725C48&dates=725C48&border_radius=14" alt="Contribution streak" width="58%">
 </p>
 
-<sub>these redraw themselves every morning from the github api — see <a href=".github/workflows/dashboard.yml">the workflow</a>. not fetched from a stats service, because most of those are currently down.</sub>
+<sub>these redraw themselves every morning from the github api &#8212; see <a href=".github/workflows/dashboard.yml">the workflow</a>. not fetched from a stats service, because most of those are currently down.</sub>
+
+<br>
+
+<sub><b>coffee &#183; study &#183; hpc</b></sub>
+
+<p align="center">
+  <img src="assets/art/pixel-coffee.svg" width="31%" alt="Pixel art: a cup of coffee steaming under a hanging lamp">
+  <img src="assets/art/pixel-study.svg" width="31%" alt="Pixel art: a desk lamp, an open book and a mug beside a starry window">
+  <img src="assets/art/pixel-hpc.svg" width="31%" alt="Pixel art: a home workstation running a band-structure calculation with a job queue alongside">
+</p>
+
+<sub>drawn pixel by pixel and animated in svg, so they play right here in the readme &#8212; <a href="scripts/gen_pixel_art.py">source</a>. the third one is my actual evening: a band structure on one screen, the queue on the other.</sub>
 
 <br>
 
@@ -150,3 +207,7 @@ Talk to me about physics, an album you can't stop replaying, or the best café i
   <a href="mailto:BladedGoose@gmail.com"><img src="https://img.shields.io/badge/email-C0562F?style=flat-square&logo=gmail&logoColor=F5EDE0" alt="Email"></a>
   <img src="https://komarev.com/ghpvc/?username=BladedGoose13&style=flat-square&color=A56B2D&label=visitors" alt="Profile visitors">
 </p>
+
+<br>
+
+<img src="assets/art/cafe.jpg" width="100%" alt="A pixel-art cafe interior on a rainy evening">

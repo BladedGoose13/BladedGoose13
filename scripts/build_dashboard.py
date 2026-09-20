@@ -101,6 +101,18 @@ def shape(user):
     weeks = [w["contributionDays"] for w in cal["weeks"]][-53:]
     days = [d for w in weeks for d in w]
     sizes = [(r["name"], sum(e["size"] for e in r["languages"]["edges"])) for r in repos]
+    by_month, order = {}, []
+    wd_names = ("sun", "mon", "tue", "wed", "thu", "fri", "sat")
+    by_wd = [0] * 7
+    for d in days:
+        key = d["date"][:7]
+        if key not in by_month:
+            by_month[key] = 0
+            order.append(key)
+        by_month[key] += d["contributionCount"]
+        by_wd[d["weekday"]] += d["contributionCount"]
+    months = [(dt.date.fromisoformat(k + "-01").strftime("%b").lower(), by_month[k])
+              for k in order][-12:]
     return {
         "live": True,
         "repos": user["repositories"]["totalCount"],
@@ -113,6 +125,8 @@ def shape(user):
         "langs": sorted(lang.items(), key=lambda kv: -kv[1]),
         "sizes": sorted(sizes, key=lambda kv: -kv[1])[:6],
         "mass": sum(lang.values()),
+        "months": months,
+        "weekdays": list(zip(wd_names, by_wd)),
         "since": user["createdAt"][:4],
     }
 
@@ -132,6 +146,8 @@ def seed():
         "langs": sorted(lang.items(), key=lambda kv: -kv[1]),
         "sizes": sorted([(n, sz) for (n, _, sz, _) in repos], key=lambda kv: -kv[1])[:6],
         "mass": sum(lang.values()),
+        "months": [],
+        "weekdays": [],
         "since": "2024",
     }
 
@@ -241,6 +257,54 @@ def build_activity(d):
     return "".join(o)
 
 
+def build_focus(d):
+    """Tall panel, sized to stand beside the vertical artwork.
+
+    Two cuts of one measure -- contributions by month and by weekday. Same
+    units, separate plots, one axis each; never two scales on one plot.
+    """
+    W, H = 540, 640
+    o = [open_svg(W, H, "Contributions by month and by weekday for %s" % LOGIN)]
+    head(o, W, "when the work happens", "past year")
+
+    o.append(ch.card(16, 48, W - 32, 274, "by month", "contributions"))
+    o.append(ch.vbars(66, 100, W - 100, 178, d["months"]))
+
+    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "contributions"))
+    if d["weekdays"]:
+        o.append(ch.hbars(46, 396, W - 76, d["weekdays"], pitch=31, value_fmt=str))
+    else:
+        o.append('<text x="46" y="470" font-family=%s font-size="12.5" fill="%s">fills in '
+                 'after the first sync</text>' % (F, INK_3))
+    o.append("</svg>")
+    return "".join(o)
+
+
+def build_calendar(d):
+    """The traditional contribution graph, full width."""
+    W, H = 1200, 268
+    cell, gap = 13, 4
+    o = [open_svg(W, H, "A year of contributions, day by day, for %s" % LOGIN)]
+    head(o, W, "the last year, day by day",
+         ("%d contributions" % d["contribs"]) if d["contribs"] else "awaiting first sync")
+    o.append(ch.card(16, 48, W - 32, 204, "", ""))
+    gx, gy = 96, 96
+    if d["weeks"]:
+        for i, lab in month_labels(d["weeks"]):
+            o.append('<text x="%d" y="%d" font-family=%s font-size="11" fill="%s">%s</text>'
+                     % (gx + i * (cell + gap), gy - 10, F, INK_3, lab))
+        for wd, lab in ((1, "mon"), (3, "wed"), (5, "fri")):
+            o.append('<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="10.5" '
+                     'fill="%s">%s</text>' % (gx - 10, gy + wd * (cell + gap) + 11, F, INK_3, lab))
+        o.append(ch.heatmap(gx, gy, d["weeks"], d["peak"], cell=cell, gap=gap))
+        o.append(ch.heat_legend(W - 190, gy + 7 * (cell + gap) + 12, cell=cell, gap=gap))
+    else:
+        o.append('<text x="%d" y="%d" font-family=%s font-size="13" fill="%s">the calendar '
+                 'fills in on the first scheduled sync</text>' % (gx, gy + 60, F, INK_3))
+    o.append("</svg>")
+    return "".join(o)
+
+
 if __name__ == "__main__":
     token = os.environ.get("GITHUB_TOKEN", "")
     data = None
@@ -252,7 +316,10 @@ if __name__ == "__main__":
     if data is None:
         data = seed()
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    for name, svg in (("dashboard", build_dashboard(data)), ("activity", build_activity(data))):
+    for name, svg in (("dashboard", build_dashboard(data)),
+                      ("activity", build_activity(data)),
+                      ("focus", build_focus(data)),
+                      ("calendar", build_calendar(data))):
         dest = os.path.join(root, "assets", "%s.svg" % name)
         with open(dest, "w", encoding="ascii") as fh:
             fh.write(svg.encode("ascii", "xmlcharrefreplace").decode())
