@@ -190,9 +190,10 @@ def head(o, w, title, note):
 
 
 def open_svg(w, h, label, seed=0):
-    """Open the canvas and lay down the ground the glass sits on."""
+    """Open the canvas, lay the ground, declare the mark gradients."""
     return ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" '
-            'role="img" aria-label="%s">%s' % (w, h, w, h, label, backdrop(w, h, seed)))
+            'role="img" aria-label="%s">%s%s'
+            % (w, h, w, h, label, backdrop(w, h, seed), ch.bar_defs(seed)))
 
 
 # --------------------------------------------------------------------------
@@ -213,7 +214,7 @@ def build_dashboard(d):
         o.append(ch.stat(20 + i * (tw + gap), 50, tw, lab, val, unit, seed=SEED))
 
     # -- language share: part-to-whole, ordered by size -> sequential ramp --
-    o.append(ch.card(20, 168, 460, 244, "what i write in", "share of source", seed=SEED))
+    o.append(ch.card(20, 168, 460, 244, "what i write in", "", seed=SEED))
     langs = d["langs"][:5]
     total = sum(v for _, v in langs) or 1
     o.append(ch.donut(128, 300, 72, 46,
@@ -223,7 +224,7 @@ def build_dashboard(d):
                        [(n, "%.0f%%" % (100.0 * v / total)) for n, v in langs]))
 
     # -- cadence: trend over time, one series -----------------------------
-    o.append(ch.card(494, 168, 686, 244, "when i actually commit", "weekly, past year", seed=SEED))
+    o.append(ch.card(494, 168, 686, 244, "when i actually commit", "", seed=SEED))
     weekly = [sum(x["contributionCount"] for x in wk) for wk in d["weeks"]]
     o.append(ch.area(560, 216, 580, 138, weekly,
                      x_labels=month_labels(d["weeks"])[::2]))
@@ -245,9 +246,9 @@ def build_activity(d):
     card_h = top - 46 + pitch * len(rows) + 16
     W, H = 1200, 46 + card_h + 24
     o = [open_svg(W, H, "Public repositories by size for %s" % LOGIN, SEED)]
-    head(o, W, "what i\u2019ve been building", "public repos, by size")
+    head(o, W, "what i\u2019ve been building", "")
     o.append(ch.card(20, 46, 1160, card_h, "", "", seed=SEED))
-    o.append(ch.hbars(50, top, 1100, rows, pitch=pitch, value_fmt=human_bytes))
+    o.append(ch.hbars(50, top, 1100, rows, pitch=pitch, value_fmt=human_bytes, seed=SEED))
     o.append("</svg>")
     return "".join(o)
 
@@ -263,12 +264,12 @@ def build_focus(d):
     o = [open_svg(W, H, "Contributions by month and by weekday for %s" % LOGIN, SEED)]
     head(o, W, "when the work happens", "past year")
 
-    o.append(ch.card(16, 48, W - 32, 274, "by month", "contributions", seed=SEED))
-    o.append(ch.vbars(66, 100, W - 100, 178, d["months"]))
+    o.append(ch.card(16, 48, W - 32, 274, "by month", "", seed=SEED))
+    o.append(ch.vbars(66, 100, W - 100, 178, d["months"], seed=SEED))
 
-    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "contributions", seed=SEED))
+    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "", seed=SEED))
     if d["weekdays"]:
-        o.append(ch.hbars(46, 396, W - 76, d["weekdays"], pitch=31, value_fmt=str))
+        o.append(ch.hbars(46, 396, W - 76, d["weekdays"], pitch=31, value_fmt=str, seed=SEED))
     else:
         o.append('<text x="46" y="470" font-family=%s font-size="12.5" fill="%s">fills in '
                  'after the first sync</text>' % (F, INK_3))
@@ -313,6 +314,7 @@ if __name__ == "__main__":
     if data is None:
         data = seed()
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    written = []
     for name, svg in (("dashboard", build_dashboard(data)),
                       ("activity", build_activity(data)),
                       ("focus", build_focus(data)),
@@ -320,4 +322,15 @@ if __name__ == "__main__":
         dest = os.path.join(root, "assets", "%s.svg" % name)
         with open(dest, "w", encoding="ascii") as fh:
             fh.write(svg.encode("ascii", "xmlcharrefreplace").decode())
+        written.append(os.path.relpath(dest, root))
         print("wrote %s (%.1f KB, live=%s)" % (dest, len(svg.encode()) / 1024.0, data["live"]))
+
+    # Record exactly what was written so the workflow stages these and only
+    # these. The workflow used to name assets/dashboard.svg by hand, which
+    # silently stopped matching when this script grew to four outputs -- the
+    # other three were regenerated on every run and then thrown away, so they
+    # sat frozen at their seed values in the repo.
+    manifest = os.environ.get("ASSET_MANIFEST")
+    if manifest:
+        with open(manifest, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(written) + "\n")
