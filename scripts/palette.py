@@ -11,8 +11,8 @@ coffee. The sequential ramp was searched in OKLCH and checked with the
 dataviz validator against the *effective* glass surface -- the page colour
 seen through a 7% white card, #1C1A29 -- and passes its ordinal checks:
 
-    lightness monotone · adjacent dL >= 0.06 · dim end 2.44:1 on glass
-    · single hue (12 deg spread)
+    lightness monotone · adjacent dL >= 0.06 · dim end 2.05:1 on glass
+    · single hue (6 deg spread)
 
 Dark mode here is a selected set, not an inversion of the old warm one.
 Every ink below clears WCAG AA for small text on that same surface.
@@ -41,7 +41,7 @@ CREAM = "#F4F1FC"
 # Blue-violet and indigo carry the ground; coffee and plum warm it.
 BLOB_VIOLET = "#4A3B8C"
 BLOB_INDIGO = "#33307A"
-BLOB_COFFEE = "#6B4A2E"
+BLOB_COFFEE = "#5E3E22"
 BLOB_PLUM = "#4A2E5E"
 
 # -- ink (all >= 4.5:1 on #1D1824) ------------------------------------------
@@ -50,13 +50,13 @@ INK_2 = "#AFA8CC"
 INK_3 = "#8A83A6"
 
 # -- marks ------------------------------------------------------------------
-ACCENT = "#D9A066"       # single-series mark: caramel
-ACCENT_SOFT = "#7C4F1F"  # the same hue at low emphasis, for area fills
+ACCENT = "#C08040"       # single-series mark: roasted coffee (5.21:1 on glass)
+ACCENT_SOFT = "#73421A"  # the same hue at low emphasis, for area fills
 SAGE = "#8C7BD9"         # one supporting periwinkle, for furniture not data
 EMPTY = "#1E1B30"        # zero-value heat cell: reads as glass, not as data
 
 # -- sequential ramp: dim -> bright (see module docstring) ------------------
-RAMP = ["#7C4F1F", "#9D6425", "#C1792E", "#E2912E", "#FDAF25"]
+RAMP = ["#73421A", "#8F5422", "#AD642E", "#CB7638", "#E58C36"]
 
 FONT = "Arial, Helvetica, 'Liberation Sans', sans-serif"
 

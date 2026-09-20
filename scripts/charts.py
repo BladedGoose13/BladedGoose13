@@ -41,9 +41,9 @@ def card(x, y, w, h, title, note="", seed=0):
              % (x + 16, y + 1.5, x + w - 16, GLASS_FILL, GLASS_HI))
     o.append('<text x="%d" y="%d" font-family=%s font-size="15" font-weight="700" fill="%s">'
              '%s</text>' % (x + 20, y + 32, F, INK, esc(title)))
-    if note:
-        o.append('<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="11.5" '
-                 'fill="%s">%s</text>' % (x + w - 20, y + 32, F, INK_3, esc(note)))
+    # `note` is accepted and ignored on purpose: every caller was passing a
+    # restatement of the title ("contributions" under "by month"), which is
+    # ink spent saying nothing. Direct labels carry the units instead.
     return "".join(o)
 
 
@@ -164,7 +164,28 @@ def area(x, y, w, h, values, x_labels=None, peak_label=True):
     return "".join(o)
 
 
-def hbars(x, y, w, rows, pitch=34, value_fmt=str):
+def bar_defs(seed=0):
+    """Gradient + glow used by the bar and column marks.
+
+    Depth comes from the mark itself -- a gradient along its length and a
+    soft drop -- rather than from gridlines or frames, so the chart gains
+    richness without gaining ink.
+    """
+    return ('<defs>'
+            '<linearGradient id="barg_%d" x1="0" y1="0" x2="1" y2="0">'
+            '<stop offset="0" stop-color="%s"/><stop offset="1" stop-color="%s"/>'
+            '</linearGradient>'
+            '<linearGradient id="barv_%d" x1="0" y1="1" x2="0" y2="0">'
+            '<stop offset="0" stop-color="%s"/><stop offset="1" stop-color="%s"/>'
+            '</linearGradient>'
+            '<filter id="barsh_%d" x="-30%%" y="-30%%" width="180%%" height="180%%">'
+            '<feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="%s" '
+            'flood-opacity=".55"/></filter>'
+            '</defs>' % (seed, ACCENT_SOFT, ACCENT, seed, ACCENT_SOFT, ACCENT,
+                         seed, "#000000"))
+
+
+def hbars(x, y, w, rows, pitch=34, value_fmt=str, seed=0):
     """Magnitude across nominal categories -> ONE colour for every bar.
 
     Colouring these darker-where-bigger would double-encode length as hue.
@@ -179,10 +200,11 @@ def hbars(x, y, w, rows, pitch=34, value_fmt=str):
         o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s" '
                  'fill-opacity="%.3f"/>' % (x + 200, yy - 9, track, GLASS_FILL, GLASS_OP_2))
         bw = max(6, int(track * val / mx))
-        o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s">'
-                 '<animate attributeName="width" values="0;%d" dur=".8s" begin="%.2fs" '
-                 'fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1"/></rect>'
-                 % (x + 200, yy - 9, bw, ACCENT, bw, 0.2 + 0.08 * i))
+        o.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" '
+                 'fill="url(#barg_%d)" filter="url(#barsh_%d)">'
+                 '<animate attributeName="width" values="0;%d" dur=".9s" begin="%.2fs" '
+                 'fill="freeze" calcMode="spline" keySplines=".16 1 .3 1"/></rect>'
+                 % (x + 200, yy - 9, bw, seed, seed, bw, 0.2 + 0.07 * i))
         o.append('<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="12" '
                  'fill="%s">%s</text>' % (x + w, yy, F, INK_3, esc(value_fmt(val))))
     return "".join(o)
@@ -213,7 +235,7 @@ def heat_legend(x, y, cell=11, gap=3):
     return "".join(o)
 
 
-def vbars(x, y, w, h, rows, peak_label=True):
+def vbars(x, y, w, h, rows, peak_label=True, seed=0):
     """Columns for magnitude across an ordered time axis.
 
     One measure, one hue: the categories are months, which carry no identity
@@ -228,22 +250,21 @@ def vbars(x, y, w, h, rows, peak_label=True):
     n = len(rows)
     slot = w / float(n)
     bw = max(6, slot - 8)                      # 8px of surface between columns
-    for frac in (0, 0.5, 1.0):                 # hairline, solid, recessive
-        gy = y + h - frac * h
-        o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity=".12" stroke-width="1"/>'
-                 % (x, gy, x + w, GLASS_FILL))
-        o.append('<text x="%d" y="%.1f" text-anchor="end" font-family=%s font-size="10.5" '
-                 'fill="%s">%d</text>' % (x - 8, gy + 4, F, INK_3, round(mx * frac)))
+    # One baseline only. The peak is direct-labelled, which fixes the scale
+    # without a column of axis numbers repeating what the bars already show.
+    o.append('<path d="M%d %.1f H%d" stroke="%s" stroke-opacity=".14" stroke-width="1"/>'
+             % (x, y + h, x + w, GLASS_FILL))
     for i, (label, val) in enumerate(rows):
         bh = max(2, (val / mx) * h)
         bx = x + i * slot + (slot - bw) / 2.0
         by = y + h - bh
-        o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="4" fill="%s">'
-                 '<animate attributeName="height" values="0;%.1f" dur=".7s" begin="%.2fs" '
-                 'fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1"/>'
-                 '<animate attributeName="y" values="%.1f;%.1f" dur=".7s" begin="%.2fs" '
-                 'fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1"/></rect>'
-                 % (bx, by, bw, bh, ACCENT, bh, 0.15 + 0.04 * i, y + h, by, 0.15 + 0.04 * i))
+        o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="5" '
+                 'fill="url(#barv_%d)" filter="url(#barsh_%d)">'
+                 '<animate attributeName="height" values="0;%.1f" dur=".8s" begin="%.2fs" '
+                 'fill="freeze" calcMode="spline" keySplines=".16 1 .3 1"/>'
+                 '<animate attributeName="y" values="%.1f;%.1f" dur=".8s" begin="%.2fs" '
+                 'fill="freeze" calcMode="spline" keySplines=".16 1 .3 1"/></rect>'
+                 % (bx, by, bw, bh, seed, seed, bh, 0.15 + 0.045 * i, y + h, by, 0.15 + 0.045 * i))
         o.append('<text x="%.1f" y="%d" text-anchor="middle" font-family=%s font-size="10" '
                  'fill="%s">%s</text>' % (bx + bw / 2.0, y + h + 17, F, INK_3, esc(label)))
         if peak_label and val == mx:
