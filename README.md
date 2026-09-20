@@ -1,7 +1,7 @@
 <h1>maximilien tragarz quintana</h1>
 
 <p>
-  <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=20&pause=1000&duration=3600&color=F0559A&center=false&vCenter=true&width=820&height=44&lines=computational+physics%2C+shipped+as+software;dft+%2B+hpc+%2B+sciml%2C+in+pipelines+that+rerun;math+that+has+to+survive+real+data;currently%3A+coffee%2C+then+a+scf+cycle" alt="computational physics, shipped as software">
+  <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=20&pause=1000&duration=3600&color=D9A066&center=false&vCenter=true&width=820&height=44&lines=computational+physics%2C+shipped+as+software;dft+%2B+hpc+%2B+sciml%2C+in+pipelines+that+rerun;math+that+has+to+survive+real+data;currently%3A+coffee%2C+then+a+scf+cycle" alt="computational physics, shipped as software">
 </p>
 
 I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
@@ -16,59 +16,59 @@ I like problems where the math has to survive contact with real data. Long term 
 <sub><b>languages</b></sub>
 
 <p>
-  <img src="https://img.shields.io/Python-F0559A?style=for-the-badge&logo=python&logoColor=0C0714" alt="Python">
-  <img src="https://img.shields.io/C%2B%2B-7D3DC1?style=for-the-badge&logo=cplusplus&logoColor=0C0714" alt="C++">
-  <img src="https://img.shields.io/MATLAB-C42599?style=for-the-badge&logo=octave&logoColor=0C0714" alt="MATLAB">
-  <img src="https://img.shields.io/Bash-A52FBE?style=for-the-badge&logo=gnubash&logoColor=0C0714" alt="Bash">
-  <img src="https://img.shields.io/SQLite-D54C66?style=for-the-badge&logo=sqlite&logoColor=0C0714" alt="SQLite">
-  <img src="https://img.shields.io/LaTeX-F59D5A?style=for-the-badge&logo=latex&logoColor=0C0714" alt="LaTeX">
+  <img src="https://img.shields.io/Python-A9722C?style=for-the-badge&logo=python&logoColor=E6E3F5" alt="Python">
+  <img src="https://img.shields.io/C%2B%2B-4A3B8C?style=for-the-badge&logo=cplusplus&logoColor=E6E3F5" alt="C++">
+  <img src="https://img.shields.io/MATLAB-7C4F1F?style=for-the-badge&logo=octave&logoColor=E6E3F5" alt="MATLAB">
+  <img src="https://img.shields.io/Bash-5E4A9E?style=for-the-badge&logo=gnubash&logoColor=E6E3F5" alt="Bash">
+  <img src="https://img.shields.io/SQLite-8C5A2E?style=for-the-badge&logo=sqlite&logoColor=E6E3F5" alt="SQLite">
+  <img src="https://img.shields.io/LaTeX-3E3570?style=for-the-badge&logo=latex&logoColor=E6E3F5" alt="LaTeX">
 </p>
 
 <sub><b>scientific python</b></sub>
 
 <p>
-  <img src="https://img.shields.io/NumPy-C42599?style=for-the-badge&logo=numpy&logoColor=0C0714" alt="NumPy">
-  <img src="https://img.shields.io/SciPy-A52FBE?style=for-the-badge&logo=scipy&logoColor=0C0714" alt="SciPy">
-  <img src="https://img.shields.io/pandas-F0559A?style=for-the-badge&logo=pandas&logoColor=0C0714" alt="pandas">
-  <img src="https://img.shields.io/Matplotlib-7D3DC1?style=for-the-badge&logo=chartdotjs&logoColor=0C0714" alt="Matplotlib">
-  <img src="https://img.shields.io/Jupyter-F59D5A?style=for-the-badge&logo=jupyter&logoColor=0C0714" alt="Jupyter">
-  <img src="https://img.shields.io/Anaconda-D54C66?style=for-the-badge&logo=anaconda&logoColor=0C0714" alt="Anaconda">
+  <img src="https://img.shields.io/NumPy-7C4F1F?style=for-the-badge&logo=numpy&logoColor=E6E3F5" alt="NumPy">
+  <img src="https://img.shields.io/SciPy-5E4A9E?style=for-the-badge&logo=scipy&logoColor=E6E3F5" alt="SciPy">
+  <img src="https://img.shields.io/pandas-A9722C?style=for-the-badge&logo=pandas&logoColor=E6E3F5" alt="pandas">
+  <img src="https://img.shields.io/Matplotlib-4A3B8C?style=for-the-badge&logo=chartdotjs&logoColor=E6E3F5" alt="Matplotlib">
+  <img src="https://img.shields.io/Jupyter-3E3570?style=for-the-badge&logo=jupyter&logoColor=E6E3F5" alt="Jupyter">
+  <img src="https://img.shields.io/Anaconda-8C5A2E?style=for-the-badge&logo=anaconda&logoColor=E6E3F5" alt="Anaconda">
 </p>
 
 <sub><b>machine learning</b></sub>
 
 <p>
-  <img src="https://img.shields.io/PyTorch-F0559A?style=for-the-badge&logo=pytorch&logoColor=0C0714" alt="PyTorch">
-  <img src="https://img.shields.io/scikit--learn-C42599?style=for-the-badge&logo=scikitlearn&logoColor=0C0714" alt="scikit-learn">
-  <img src="https://img.shields.io/Scientific_ML-A52FBE?style=for-the-badge&logo=tensorflow&logoColor=0C0714" alt="Scientific ML">
+  <img src="https://img.shields.io/PyTorch-A9722C?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch">
+  <img src="https://img.shields.io/scikit--learn-7C4F1F?style=for-the-badge&logo=scikitlearn&logoColor=E6E3F5" alt="scikit-learn">
+  <img src="https://img.shields.io/Scientific_ML-5E4A9E?style=for-the-badge&logo=tensorflow&logoColor=E6E3F5" alt="Scientific ML">
 </p>
 
 <sub><b>physics & hpc</b></sub>
 
 <p>
-  <img src="https://img.shields.io/Quantum_ESPRESSO-7D3DC1?style=for-the-badge&logo=qiskit&logoColor=0C0714" alt="Quantum ESPRESSO">
-  <img src="https://img.shields.io/DFT_%26_SOC-C42599?style=for-the-badge&logo=moleculer&logoColor=0C0714" alt="DFT & SOC">
-  <img src="https://img.shields.io/Linux-F59D5A?style=for-the-badge&logo=linux&logoColor=0C0714" alt="Linux">
-  <img src="https://img.shields.io/Slurm_%26_HPC-D54C66?style=for-the-badge&logo=linuxfoundation&logoColor=0C0714" alt="Slurm & HPC">
-  <img src="https://img.shields.io/CUDA-A52FBE?style=for-the-badge&logo=nvidia&logoColor=0C0714" alt="CUDA">
+  <img src="https://img.shields.io/Quantum_ESPRESSO-4A3B8C?style=for-the-badge&logo=qiskit&logoColor=E6E3F5" alt="Quantum ESPRESSO">
+  <img src="https://img.shields.io/DFT_%26_SOC-7C4F1F?style=for-the-badge&logo=moleculer&logoColor=E6E3F5" alt="DFT & SOC">
+  <img src="https://img.shields.io/Linux-3E3570?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux">
+  <img src="https://img.shields.io/Slurm_%26_HPC-8C5A2E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm & HPC">
+  <img src="https://img.shields.io/CUDA-5E4A9E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA">
 </p>
 
 <sub><b>build & ship</b></sub>
 
 <p>
-  <img src="https://img.shields.io/Git-F0559A?style=for-the-badge&logo=git&logoColor=0C0714" alt="Git">
-  <img src="https://img.shields.io/Docker-C42599?style=for-the-badge&logo=docker&logoColor=0C0714" alt="Docker">
-  <img src="https://img.shields.io/FastAPI-A52FBE?style=for-the-badge&logo=fastapi&logoColor=0C0714" alt="FastAPI">
-  <img src="https://img.shields.io/Streamlit-7D3DC1?style=for-the-badge&logo=streamlit&logoColor=0C0714" alt="Streamlit">
-  <img src="https://img.shields.io/Overleaf-D54C66?style=for-the-badge&logo=overleaf&logoColor=0C0714" alt="Overleaf">
+  <img src="https://img.shields.io/Git-A9722C?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git">
+  <img src="https://img.shields.io/Docker-7C4F1F?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker">
+  <img src="https://img.shields.io/FastAPI-5E4A9E?style=for-the-badge&logo=fastapi&logoColor=E6E3F5" alt="FastAPI">
+  <img src="https://img.shields.io/Streamlit-4A3B8C?style=for-the-badge&logo=streamlit&logoColor=E6E3F5" alt="Streamlit">
+  <img src="https://img.shields.io/Overleaf-8C5A2E?style=for-the-badge&logo=overleaf&logoColor=E6E3F5" alt="Overleaf">
 </p>
 
 <sub><b>hardware</b></sub>
 
 <p>
-  <img src="https://img.shields.io/KiCad-F59D5A?style=for-the-badge&logo=kicad&logoColor=0C0714" alt="KiCad">
-  <img src="https://img.shields.io/ESP32-F0559A?style=for-the-badge&logo=espressif&logoColor=0C0714" alt="ESP32">
-  <img src="https://img.shields.io/Arduino-A52FBE?style=for-the-badge&logo=arduino&logoColor=0C0714" alt="Arduino">
+  <img src="https://img.shields.io/KiCad-3E3570?style=for-the-badge&logo=kicad&logoColor=E6E3F5" alt="KiCad">
+  <img src="https://img.shields.io/ESP32-A9722C?style=for-the-badge&logo=espressif&logoColor=E6E3F5" alt="ESP32">
+  <img src="https://img.shields.io/Arduino-5E4A9E?style=for-the-badge&logo=arduino&logoColor=E6E3F5" alt="Arduino">
 </p>
 
 <br>
@@ -133,7 +133,7 @@ What that buys me, in practice:
 <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 
 <p>
-  <img src="https://streak-stats.demolab.com?user=BladedGoose13&background=140B1F&border=3A2A4E&stroke=3A2A4E&ring=F0559A&fire=F0559A&currStreakNum=EFE7F7&sideNums=EFE7F7&currStreakLabel=F0559A&sideLabels=9B87B4&dates=9B87B4&border_radius=16" alt="Contribution streak" width="58%">
+  <img src="https://streak-stats.demolab.com?user=BladedGoose13&background=120E26&border=332C52&stroke=332C52&ring=D9A066&fire=D9A066&currStreakNum=E6E3F5&sideNums=E6E3F5&currStreakLabel=D9A066&sideLabels=8A83A6&dates=8A83A6&border_radius=16" alt="Contribution streak" width="58%">
 </p>
 
 <sub>these redraw themselves every morning from the github api &#8212; see <a href=".github/workflows/dashboard.yml">the workflow</a>. not fetched from a stats service, because most of those are currently down.</sub>
@@ -191,12 +191,12 @@ Coffee and bakery enjoyer! (and i believe connoisseur lol)
 I also LOVE travelling and getting to know new people.
 
 <p>
-  <img src="https://img.shields.io/Valorant-F0559A?style=for-the-badge&logo=valorant&logoColor=0C0714" alt="Valorant">
-  <img src="https://img.shields.io/League_of_Legends-7D3DC1?style=for-the-badge&logo=leagueoflegends&logoColor=0C0714" alt="League of Legends">
-  <img src="https://img.shields.io/Spotify-A52FBE?style=for-the-badge&logo=spotify&logoColor=0C0714" alt="Spotify">
-  <img src="https://img.shields.io/COFFEE-D54C66?style=for-the-badge&logo=buymeacoffee&logoColor=0C0714" alt="Coffee">
-  <img src="https://img.shields.io/Crunchyroll-C42599?style=for-the-badge&logo=crunchyroll&logoColor=0C0714" alt="Crunchyroll">
-  <img src="https://img.shields.io/Lifting-F59D5A?style=for-the-badge&logo=strava&logoColor=0C0714" alt="Lifting">
+  <img src="https://img.shields.io/Valorant-A9722C?style=for-the-badge&logo=valorant&logoColor=E6E3F5" alt="Valorant">
+  <img src="https://img.shields.io/League_of_Legends-4A3B8C?style=for-the-badge&logo=leagueoflegends&logoColor=E6E3F5" alt="League of Legends">
+  <img src="https://img.shields.io/Spotify-5E4A9E?style=for-the-badge&logo=spotify&logoColor=E6E3F5" alt="Spotify">
+  <img src="https://img.shields.io/COFFEE-8C5A2E?style=for-the-badge&logo=buymeacoffee&logoColor=E6E3F5" alt="Coffee">
+  <img src="https://img.shields.io/Crunchyroll-7C4F1F?style=for-the-badge&logo=crunchyroll&logoColor=E6E3F5" alt="Crunchyroll">
+  <img src="https://img.shields.io/Lifting-3E3570?style=for-the-badge&logo=strava&logoColor=E6E3F5" alt="Lifting">
 </p>
 
 <br>
@@ -204,8 +204,8 @@ I also LOVE travelling and getting to know new people.
 Talk to me about physics, an album you can't stop replaying, or the best café in a city you think I should visit.
 
 <p>
-  <a href="mailto:BladedGoose@gmail.com"><img src="https://img.shields.io/email-F0559A?style=flat-square&logo=gmail&logoColor=0C0714" alt="Email"></a>
-  <img src="https://komarev.com/ghpvc/?username=BladedGoose13&style=flat-square&color=C42599&label=visitors" alt="Profile visitors">
+  <a href="mailto:BladedGoose@gmail.com"><img src="https://img.shields.io/email-A9722C?style=flat-square&logo=gmail&logoColor=E6E3F5" alt="Email"></a>
+  <img src="https://komarev.com/ghpvc/?username=BladedGoose13&style=flat-square&color=7C4F1F&label=visitors" alt="Profile visitors">
 </p>
 
 <br>

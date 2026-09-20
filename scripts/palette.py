@@ -6,21 +6,22 @@ image gave the surfaces (#100818, #20102B, #462F64, #4F1F43 ...), and a
 second pass over its brightest, most saturated pixels gave the neon
 (#F59D5A sunset, #D54C66 rose, #C42599 and #A52FBE monitor glow).
 
-The sequential ramp was then searched in OKLCH and checked with the
+The ground was then pulled darker and bluer, and the data hue moved to
+coffee. The sequential ramp was searched in OKLCH and checked with the
 dataviz validator against the *effective* glass surface -- the page colour
-seen through a 7% white card, #1D1824 -- and passes its ordinal checks:
+seen through a 7% white card, #1C1A29 -- and passes its ordinal checks:
 
-    lightness monotone · adjacent dL >= 0.06 · dim end >= 2:1 on glass
-    · single hue (14 deg spread)
+    lightness monotone · adjacent dL >= 0.06 · dim end 2.44:1 on glass
+    · single hue (12 deg spread)
 
 Dark mode here is a selected set, not an inversion of the old warm one.
 Every ink below clears WCAG AA for small text on that same surface.
 """
 
 # -- surfaces ---------------------------------------------------------------
-PAGE = "#0C0714"     # page ground, a shade darker than the artwork's own black
-PAGE_2 = "#140B1F"   # secondary ground
-SHADOW = "#07040D"   # depth under cards
+PAGE = "#0B0819"     # page ground: deep blue-leaning violet
+PAGE_2 = "#120E26"   # secondary ground
+SHADOW = "#060411"   # depth under cards
 
 # Glass is a translucent white over the blurred colour blobs behind it, so
 # fill and opacity are carried separately.
@@ -28,33 +29,34 @@ GLASS_FILL = "#FFFFFF"
 GLASS_OP = 0.07      # card
 GLASS_OP_2 = 0.04    # recessed well inside a card
 GLASS_HI = 0.22      # top highlight line
-EDGE = "#8E74B8"     # stroke base; drawn at low opacity via the edge gradient
+EDGE = "#7E74B8"     # stroke base; drawn at low opacity via the edge gradient
 
 # Names kept from the previous system so call sites stay unchanged.
 CARD = GLASS_FILL
-CARD_2 = "#241A2E"
+CARD_2 = "#1E1B30"
 PAPER = PAGE
-CREAM = "#F6EFFB"
+CREAM = "#F4F1FC"
 
 # -- blobs that give the glass something to refract -------------------------
-BLOB_MAGENTA = "#C42599"
-BLOB_VIOLET = "#7D3DC1"
-BLOB_ORANGE = "#F59D5A"
-BLOB_ROSE = "#D54C66"
+# Blue-violet and indigo carry the ground; coffee and plum warm it.
+BLOB_VIOLET = "#4A3B8C"
+BLOB_INDIGO = "#33307A"
+BLOB_COFFEE = "#6B4A2E"
+BLOB_PLUM = "#4A2E5E"
 
 # -- ink (all >= 4.5:1 on #1D1824) ------------------------------------------
-INK = "#EFE7F7"
-INK_2 = "#C3B2D8"
-INK_3 = "#9B87B4"
+INK = "#E6E3F5"
+INK_2 = "#AFA8CC"
+INK_3 = "#8A83A6"
 
 # -- marks ------------------------------------------------------------------
-ACCENT = "#F0559A"       # single-series mark: neon rose
-ACCENT_SOFT = "#8E3A66"  # the same hue at low emphasis, for area fills
-SAGE = "#A78BFA"         # one supporting violet, for furniture not data
-EMPTY = "#241A2E"        # zero-value heat cell: reads as glass, not as data
+ACCENT = "#D9A066"       # single-series mark: caramel
+ACCENT_SOFT = "#7C4F1F"  # the same hue at low emphasis, for area fills
+SAGE = "#8C7BD9"         # one supporting periwinkle, for furniture not data
+EMPTY = "#1E1B30"        # zero-value heat cell: reads as glass, not as data
 
 # -- sequential ramp: dim -> bright (see module docstring) ------------------
-RAMP = ["#7F2E55", "#A33D6A", "#C44F85", "#E861A0", "#FD73D0"]
+RAMP = ["#7C4F1F", "#9D6425", "#C1792E", "#E2912E", "#FDAF25"]
 
 FONT = "Arial, Helvetica, 'Liberation Sans', sans-serif"
 
@@ -96,10 +98,10 @@ def backdrop(w, h, seed=0):
     blobs are what the translucent cards pick up; without them a 7% white
     fill on a flat ground just looks grey.
     """
-    blobs = [(0.16, 0.10, 0.52, BLOB_VIOLET, 0.55),
-             (0.82, 0.18, 0.46, BLOB_MAGENTA, 0.42),
-             (0.62, 0.88, 0.50, BLOB_ROSE, 0.34),
-             (0.30, 0.78, 0.40, BLOB_ORANGE, 0.20)]
+    blobs = [(0.14, 0.12, 0.54, BLOB_VIOLET, 0.50),
+             (0.84, 0.16, 0.46, BLOB_INDIGO, 0.46),
+             (0.66, 0.86, 0.48, BLOB_PLUM, 0.34),
+             (0.28, 0.82, 0.42, BLOB_COFFEE, 0.26)]
     o = ['<defs>']
     for i, (_, _, _, col, _) in enumerate(blobs):
         o.append('<radialGradient id="blob%d_%d" cx=".5" cy=".5" r=".5">'
