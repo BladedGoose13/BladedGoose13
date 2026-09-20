@@ -1,10 +1,15 @@
 name: dashboard
 
-# Regenerates assets/dashboard.svg from live GitHub data and commits it.
-# The SVG is committed rather than fetched from a third-party card service
-# because those services go down: at the time this was written the public
+# Regenerates the profile's live figures from the GitHub API and commits
+# them: the SVG charts in assets/, and the markdown stats block inside
+# README.md between the STATS markers.
+#
+# Both are committed rather than fetched from a third-party card service,
+# because those go down -- at the time this was written the public
 # instances of github-readme-stats, github-profile-trophy and
-# github-readme-activity-graph were all returning 402/503.
+# github-readme-activity-graph were all returning 402/503. The markdown
+# block additionally stays real text: selectable, diffable, and themed by
+# GitHub itself rather than baked into a picture.
 
 on:
   schedule:
@@ -39,14 +44,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Regenerate dashboard
+      - name: Regenerate figures
         env:
           # METRICS_TOKEN is optional: a classic PAT with read:user also counts
           # private contributions. Without it the default token still works and
           # simply reports public activity only.
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           PROFILE_LOGIN: ${{ github.repository_owner }}
-        run: python scripts/build_dashboard.py
+        run: |
+          python scripts/build_dashboard.py
+          python scripts/build_tables.py
 
       - name: Commit if changed
         run: |
@@ -54,8 +61,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           xargs -a "$ASSET_MANIFEST" git add --
           if git diff --staged --quiet; then
-            echo "dashboard unchanged"
+            echo "nothing changed"
           else
-            git commit -m "chore(assets): refresh dashboard"
+            git commit -m "chore(assets): refresh dashboard and stats"
             git push
           fi
