@@ -113,15 +113,25 @@ So every stage restarts clean, and the expensive part only runs on the configura
 
 <img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
 
-<details>
-<summary><sub><b>the same numbers, drawn</b></sub></summary>
-
-<img src="assets/focus.svg" alt="Contributions by month and by weekday" width="100%">
-<img src="assets/dashboard.svg" alt="Contributions, commits, repos and longest streak" width="100%">
-<img src="assets/activity.svg" alt="Public repositories by size" width="100%">
 <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 
+<!-- EXTRA:START -->
+
+<details>
+<summary><sub><b>every public repo</b></sub></summary>
+
+| repo | language | | size | |
+|---|---|---|--:|--:|
+| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 96 MB | ★ 1 |
+| [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `██············` | 14 MB | ★ 1 |
+| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 3 MB |  |
+| [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | Other | `█·············` | 1 MB |  |
+| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 429 KB |  |
+| [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 23 KB |  |
+
 </details>
+
+<!-- EXTRA:END -->
 
 <sub><b>coffee · study · hpc</b></sub>
 
