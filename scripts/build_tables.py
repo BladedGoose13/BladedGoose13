@@ -49,6 +49,9 @@ def num(n):
 def render(d):
     L = []
     a = L.append
+    # Provenance, so the guard above can tell live output from placeholders.
+    a(LIVE_MARK if d["live"] else "<!-- generated: seed -->")
+    a("")
 
     a("| | past year |")
     a("|---|--:|")
@@ -94,6 +97,26 @@ def render(d):
     return "\n".join(L).rstrip()
 
 
+LIVE_MARK = "<!-- generated: live -->"
+
+
+def guard_readme(readme, live, force):
+    """Same guard as the SVG generator, for the README's stats block."""
+    if live or force or not os.path.exists(readme):
+        return
+    with open(readme, encoding="utf-8") as fh:
+        body = fh.read()
+    # Unstamped block predates the marker; treat unknown as live (see
+    # is_live_on_disk in build_dashboard for the reasoning).
+    stamped_seed = "<!-- generated: seed -->" in body
+    has_block = START in body
+    if (LIVE_MARK in body) or (has_block and not stamped_seed):
+            raise SystemExit(
+                "refusing to overwrite the live stats block with seed data in "
+                + readme + "\n\nIf the live fetch failed above, fix that rather than "
+                "committing\nplaceholders. Pass --force only if replacing it is intended.")
+
+
 def inject(readme, block):
     s = open(readme, encoding="utf-8").read()
     i, j = s.find(START), s.find(END)
@@ -114,6 +137,7 @@ if __name__ == "__main__":
         data = seed()
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     readme = os.path.join(root, "README.md")
+    guard_readme(readme, data["live"], "--force" in sys.argv)
     out = inject(readme, render(data))
     with open(readme, "w", encoding="utf-8") as fh:
         fh.write(out)
