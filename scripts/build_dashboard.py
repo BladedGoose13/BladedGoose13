@@ -189,11 +189,16 @@ def head(o, w, title, note):
              '%s</text>' % (w - 24, F, INK_3, note))
 
 
+# Set once in __main__; read by open_svg so each asset records whether it
+# was drawn from live API data or from the offline seed.
+DATA_SOURCE = "seed"
+
+
 def open_svg(w, h, label, seed=0):
     """Open the canvas, lay the ground, declare the mark gradients."""
     return ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" '
-            'role="img" aria-label="%s">%s%s'
-            % (w, h, w, h, label, backdrop(w, h, seed), ch.bar_defs(seed)))
+            'role="img" data-source="%s" aria-label="%s">%s%s'
+            % (w, h, w, h, DATA_SOURCE, label, backdrop(w, h, seed), ch.bar_defs(seed)))
 
 
 # --------------------------------------------------------------------------
@@ -303,6 +308,48 @@ def build_calendar(d):
     return "".join(o)
 
 
+def is_live_on_disk(path):
+    """Whether the file already there must be protected from seed output.
+
+    An unstamped file predates the provenance attribute, so its origin
+    cannot be read off it. Treat unknown as live: refusing a harmless
+    overwrite costs one --force, while allowing a harmful one silently
+    destroys a year of committed data. The ambiguity is self-clearing --
+    the next live run stamps every asset.
+    """
+    if not os.path.exists(path):
+        return False
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        head = fh.read(4096)
+    if 'data-source="live"' in head:
+        return True
+    if 'data-source="seed"' in head:
+        return False
+    return True
+
+
+def guard(paths, live, force):
+    """Refuse to replace live output with seed output.
+
+    This matters in two places. Locally, running with --seed to check a
+    layout would otherwise quietly reset committed assets to placeholders,
+    and a later `git add -A` would ship that. In CI it matters more: the
+    live fetch falls back to the seed on any API error, so a transient
+    GraphQL failure would replace a real calendar with an empty one and
+    commit it. Failing loudly is the correct outcome there.
+    """
+    if live or force:
+        return
+    clobbered = [p for p in paths if is_live_on_disk(p)]
+    if clobbered:
+        raise SystemExit(
+            "refusing to overwrite live data with seed data:\n  "
+            + "\n  ".join(clobbered)
+            + "\n\nThe existing files were generated from the GitHub API. If the"
+              "\nlive fetch failed above, fix that rather than committing seed"
+              "\nplaceholders. Pass --force only if replacing them is intended.")
+
+
 if __name__ == "__main__":
     token = os.environ.get("GITHUB_TOKEN", "")
     data = None
@@ -313,7 +360,11 @@ if __name__ == "__main__":
             print("live fetch failed (%s); using seed" % exc, file=sys.stderr)
     if data is None:
         data = seed()
+    DATA_SOURCE = "live" if data["live"] else "seed"
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    targets = [os.path.join(root, "assets", "%s.svg" % n)
+               for n in ("dashboard", "activity", "focus", "calendar")]
+    guard(targets, data["live"], "--force" in sys.argv)
     written = []
     for name, svg in (("dashboard", build_dashboard(data)),
                       ("activity", build_activity(data)),
