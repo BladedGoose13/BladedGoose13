@@ -1,4 +1,4 @@
-"""Render assets/dashboard.svg and assets/activity.svg from live GitHub data.
+"""Render assets/calendar.svg from live GitHub data.
 
 Generated and committed rather than pulled from a card service: at build
 time the public instances of github-readme-stats (503), github-profile-trophy
@@ -101,6 +101,12 @@ def shape(user):
     weeks = [w["contributionDays"] for w in cal["weeks"]][-53:]
     days = [d for w in weeks for d in w]
     sizes = [(r["name"], sum(e["size"] for e in r["languages"]["edges"])) for r in repos]
+    repo_rows = sorted(
+        [(r["name"],
+          r["languages"]["edges"][0]["node"]["name"] if r["languages"]["edges"] else "\u2014",
+          sum(e["size"] for e in r["languages"]["edges"]),
+          r["stargazerCount"]) for r in repos],
+        key=lambda t: -t[2])
     by_month, order = {}, []
     wd_names = ("sun", "mon", "tue", "wed", "thu", "fri", "sat")
     by_wd = [0] * 7
@@ -126,6 +132,7 @@ def shape(user):
         "sizes": sorted(sizes, key=lambda kv: -kv[1])[:6],
         "mass": sum(lang.values()),
         "months": months,
+        "repo_rows": repo_rows,
         "weekdays": list(zip(wd_names, by_wd)),
         "since": user["createdAt"][:4],
     }
@@ -147,6 +154,8 @@ def seed():
         "sizes": sorted([(n, sz) for (n, _, sz, _) in repos], key=lambda kv: -kv[1])[:6],
         "mass": sum(lang.values()),
         "months": [],
+        "repo_rows": sorted([(n, l, sz, st) for (n, l, sz, st) in repos],
+                            key=lambda t: -t[2]),
         "weekdays": [],
         "since": "2024",
     }
@@ -202,86 +211,6 @@ def open_svg(w, h, label, seed=0):
 
 
 # --------------------------------------------------------------------------
-def build_dashboard(d):
-    SEED = 1
-    W, H = 1200, 432
-    now = dt.datetime.now(dt.timezone.utc)
-    note = ("rebuilt %s" % now.strftime("%d %b %Y").lower()) if d["live"] else "awaiting first sync"
-    o = [open_svg(W, H, "GitHub activity summary for %s" % LOGIN, SEED)]
-    head(o, W, "at a glance", note)
-
-    tiles = [("contributions", human(d["contribs"]), "past year"),
-             ("commits", human(d["commits"]), "past year"),
-             ("public repos", human(d["repos"]), "and counting"),
-             ("longest streak", human(d["best"]), "days")]
-    tw, gap = 279, 14
-    for i, (lab, val, unit) in enumerate(tiles):
-        o.append(ch.stat(20 + i * (tw + gap), 50, tw, lab, val, unit, seed=SEED))
-
-    # -- language share: part-to-whole, ordered by size -> sequential ramp --
-    o.append(ch.card(20, 168, 460, 244, "what i write in", "", seed=SEED))
-    langs = d["langs"][:5]
-    total = sum(v for _, v in langs) or 1
-    o.append(ch.donut(128, 300, 72, 46,
-                      [(n, v) for n, v in langs],
-                      total_label=human_bytes(d["mass"])))
-    o.append(ch.legend(232, 262,
-                       [(n, "%.0f%%" % (100.0 * v / total)) for n, v in langs]))
-
-    # -- cadence: trend over time, one series -----------------------------
-    o.append(ch.card(494, 168, 686, 244, "when i actually commit", "", seed=SEED))
-    weekly = [sum(x["contributionCount"] for x in wk) for wk in d["weeks"]]
-    o.append(ch.area(560, 216, 580, 138, weekly,
-                     x_labels=month_labels(d["weeks"])[::2]))
-    o.append('</svg>')
-    return "".join(o)
-
-
-def build_activity(d):
-    """Public repositories by size.
-
-    The contribution calendar used to live here too, but build_calendar now
-    owns it full width, so keeping a copy here was duplicated ink. Card
-    height is derived from the row count rather than hard-coded -- the old
-    fixed 178px silently clipped the last two repos.
-    """
-    SEED = 2
-    rows = d["sizes"][:6]
-    pitch, top = 29, 92
-    card_h = top - 46 + pitch * len(rows) + 16
-    W, H = 1200, 46 + card_h + 24
-    o = [open_svg(W, H, "Public repositories by size for %s" % LOGIN, SEED)]
-    head(o, W, "what i\u2019ve been building", "")
-    o.append(ch.card(20, 46, 1160, card_h, "", "", seed=SEED))
-    o.append(ch.hbars(50, top, 1100, rows, pitch=pitch, value_fmt=human_bytes, seed=SEED))
-    o.append("</svg>")
-    return "".join(o)
-
-
-def build_focus(d):
-    SEED = 3
-    """Tall panel, sized to stand beside the vertical artwork.
-
-    Two cuts of one measure -- contributions by month and by weekday. Same
-    units, separate plots, one axis each; never two scales on one plot.
-    """
-    W, H = 540, 640
-    o = [open_svg(W, H, "Contributions by month and by weekday for %s" % LOGIN, SEED)]
-    head(o, W, "when the work happens", "past year")
-
-    o.append(ch.card(16, 48, W - 32, 274, "by month", "", seed=SEED))
-    o.append(ch.vbars(66, 100, W - 100, 178, d["months"], seed=SEED))
-
-    o.append(ch.card(16, 338, W - 32, 286, "by weekday", "", seed=SEED))
-    if d["weekdays"]:
-        o.append(ch.hbars(46, 396, W - 76, d["weekdays"], pitch=31, value_fmt=str, seed=SEED))
-    else:
-        o.append('<text x="46" y="470" font-family=%s font-size="12.5" fill="%s">fills in '
-                 'after the first sync</text>' % (F, INK_3))
-    o.append("</svg>")
-    return "".join(o)
-
-
 def build_calendar(d):
     SEED = 4
     """The traditional contribution graph, full width."""
@@ -362,14 +291,10 @@ if __name__ == "__main__":
         data = seed()
     DATA_SOURCE = "live" if data["live"] else "seed"
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    targets = [os.path.join(root, "assets", "%s.svg" % n)
-               for n in ("dashboard", "activity", "focus", "calendar")]
+    targets = [os.path.join(root, "assets", "calendar.svg")]
     guard(targets, data["live"], "--force" in sys.argv)
     written = []
-    for name, svg in (("dashboard", build_dashboard(data)),
-                      ("activity", build_activity(data)),
-                      ("focus", build_focus(data)),
-                      ("calendar", build_calendar(data))):
+    for name, svg in (("calendar", build_calendar(data)),):
         dest = os.path.join(root, "assets", "%s.svg" % name)
         with open(dest, "w", encoding="ascii") as fh:
             fh.write(svg.encode("ascii", "xmlcharrefreplace").decode())

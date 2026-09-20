@@ -22,6 +22,8 @@ from build_dashboard import fetch, human_bytes, seed, shape
 
 START = "<!-- STATS:START -->"
 END = "<!-- STATS:END -->"
+X_START = "<!-- EXTRA:START -->"
+X_END = "<!-- EXTRA:END -->"
 SPARK = "▁▂▃▄▅▆▇█"
 FULL, EMPTY_C = "█", "·"
 
@@ -117,12 +119,54 @@ def guard_readme(readme, live, force):
                 "committing\nplaceholders. Pass --force only if replacing it is intended.")
 
 
-def inject(readme, block):
-    s = open(readme, encoding="utf-8").read()
-    i, j = s.find(START), s.find(END)
+def inject(text, block, start, end, readme):
+    i, j = text.find(start), text.find(end)
     if i == -1 or j == -1:
-        raise SystemExit("markers %s / %s not found in %s" % (START, END, readme))
-    return s[:i + len(START)] + "\n\n" + block + "\n\n" + s[j:]
+        raise SystemExit("markers %s / %s not found in %s" % (start, end, readme))
+    return text[:i + len(start)] + "\n\n" + block + "\n\n" + text[j:]
+
+
+def render_extra(d):
+    """The drill-downs that replaced the chart images.
+
+    These are <details> blocks, which is the one control GitHub actually
+    makes interactive inside a README -- an <img> gets no pointer events,
+    so a picture of a chart can never be clicked or hovered, but a
+    disclosure triangle can. Everything inside is markdown, so it is
+    selectable, searchable and themed by GitHub.
+    """
+    L = []
+    a = L.append
+
+    if d["months"]:
+        peak = max(v for _, v in d["months"]) or 1
+        a("<details>")
+        a("<summary><sub><b>month by month</b></sub></summary>")
+        a("")
+        a("| month | | |")
+        a("|---|---|--:|")
+        for name, v in d["months"]:
+            a("| %s | `%s` | %d |" % (name, bar(v, peak), v))
+        a("")
+        a("</details>")
+        a("")
+
+    rows = d.get("repo_rows") or []
+    if rows:
+        top = rows[0][2] or 1
+        login = os.environ.get("PROFILE_LOGIN", "BladedGoose13")
+        a("<details>")
+        a("<summary><sub><b>every public repo</b></sub></summary>")
+        a("")
+        a("| repo | language | | size | |")
+        a("|---|---|---|--:|--:|")
+        for name, lang, size, stars in rows:
+            a("| [%s](https://github.com/%s/%s) | %s | `%s` | %s | %s |"
+              % (name, login, name, lang, bar(size, top, 14), human_bytes(size),
+                 ("\u2605 %d" % stars) if stars else ""))
+        a("")
+        a("</details>")
+    return "\n".join(L).rstrip()
 
 
 if __name__ == "__main__":
@@ -138,7 +182,9 @@ if __name__ == "__main__":
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     readme = os.path.join(root, "README.md")
     guard_readme(readme, data["live"], "--force" in sys.argv)
-    out = inject(readme, render(data))
+    out = open(readme, encoding="utf-8").read()
+    out = inject(out, render(data), START, END, readme)
+    out = inject(out, render_extra(data), X_START, X_END, readme)
     with open(readme, "w", encoding="utf-8") as fh:
         fh.write(out)
     print("updated README.md stats block (live=%s)" % data["live"])
