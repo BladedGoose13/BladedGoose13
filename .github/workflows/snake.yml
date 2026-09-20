@@ -28,7 +28,7 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           # color_dots takes exactly 5 entries: empty cell, then low -> high.
           outputs: |
-            assets/snake.svg?palette=github-dark&color_snake=#D8A657&color_dots=#14201F,#2E4A47,#4B6B60,#9A7A55,#E8DFD1
+            assets/snake.svg?palette=github-light&color_snake=#C0562F&color_dots=#E5D9C2,#CB955D,#B97F43,#A56B2D,#774711
 
       - name: Commit if changed
         run: |
