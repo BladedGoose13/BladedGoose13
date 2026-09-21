@@ -64,8 +64,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | public repos | **7** |
 | longest streak | **4** days |
 
-<summary><sub><b>every public repo</b></sub></summary>
-
 | repo | language | | size | |
 |---|---|---|--:|--:|
 | [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 612 KB | ★ 1 |
@@ -79,9 +77,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 <!-- STATS:END -->
 
-</td><td width="42%">
-
-<img src="assets/art/nook.jpg" width="100%" alt="A pixel-art study nook at night">
 
 </td></tr></table>
 
