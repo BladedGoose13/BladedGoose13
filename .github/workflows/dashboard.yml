@@ -1,8 +1,13 @@
 name: dashboard
 
 # Regenerates the profile's live figures from the GitHub API and commits
-# them: the SVG charts in assets/, and the markdown stats block inside
+# them: the calendar card in assets/, and the markdown stats block inside
 # README.md between the STATS markers.
+#
+# The snake used to be its own workflow writing its own image, which put two
+# renderings of the same year on the page in two different visual languages.
+# It is now composed into the calendar card here, which is why snk runs in
+# this job: its output is raw input to the composer, not an asset.
 #
 # Both are committed rather than fetched from a third-party card service,
 # because those go down -- at the time this was written the public
@@ -43,6 +48,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Render the snake
+        # Raw input, never committed. The composer transplants this into the
+        # calendar card and rewrites its palette from scripts/palette.py, so
+        # no colour is named here -- which is what stops the snake drifting
+        # out of the design the way it did when the hex lived in this file.
+        #
+        # Allowed to fail: snk talks to the API on its own, and a bad day for
+        # it should not cost the calendar and the stats. The composer falls
+        # back to drawing a static grid, and the next run picks the snake up
+        # again.
+        continue-on-error: true
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: build/snake.svg
 
       - name: Regenerate figures
         env:

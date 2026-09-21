@@ -49,14 +49,9 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 <a href="https://github.com/BladedGoose13">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="assets/calendar-light.svg">
-    <img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+    <img src="assets/calendar.svg" alt="A year of contributions, day by day, with a snake eating its way across the grid" width="100%">
   </picture>
 </a>
-
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/snake-light.svg">
-  <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
-</picture>
 
 <sub><b>stuff i've built</b></sub>
 
