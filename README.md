@@ -74,7 +74,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 **[PathWise](https://github.com/BladedGoose13/PathWise)** &mdash; a PWA for high school students in Mexico. the one that taught me shipping is way harder than building
 
-**[STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama)** &mdash; a memory and pattern recognition card game, because not everything needs a Hamiltonian lol
+**[STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama)** &mdash; a memory and pattern recognition card game, not everything needs a Hamiltonian lol
 
 The rest of me: indie and chill rock, gym (not ur average joe i promise!), anime, and plenty of videogames and crafts!
 Coffee and bakery enjoyer! (and i believe connoisseur lol) I also LOVE travelling and getting to know new people.
