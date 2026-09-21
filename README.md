@@ -41,10 +41,14 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 <!-- STATS:END -->
 
 </td></tr>
-<tr><td width="18%"><sub><b>scientific</b></sub></td><td><img src="https://img.shields.io/badge/NumPy-8F5422?style=for-the-badge&logo=numpy&logoColor=E6E3F5" alt="NumPy"> <img src="https://img.shields.io/badge/SciPy-4A3B8C?style=for-the-badge&logo=scipy&logoColor=E6E3F5" alt="SciPy"> <img src="https://img.shields.io/badge/PyTorch-73421A?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch"> <img src="https://img.shields.io/badge/MATLAB-AD642E?style=for-the-badge&logo=octave&logoColor=E6E3F5" alt="MATLAB"></td></tr>
-<tr><td width="18%"><sub><b>hpc &amp; physics</b></sub></td><td><img src="https://img.shields.io/badge/Quantum_ESPRESSO-73421A?style=for-the-badge&logo=qiskit&logoColor=E6E3F5" alt="Quantum ESPRESSO"> <img src="https://img.shields.io/badge/Linux-4A3B8C?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux"> <img src="https://img.shields.io/badge/Slurm_%26_HPC-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm and HPC"> <img src="https://img.shields.io/badge/CUDA-AD642E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA"></td></tr>
-<tr><td width="18%"><sub><b>ship</b></sub></td><td><img src="https://img.shields.io/badge/Git-8F5422?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git"> <img src="https://img.shields.io/badge/Docker-4A3B8C?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker"> <img src="https://img.shields.io/badge/vLLM-AD642E?style=for-the-badge&logo=vllm&logoColor=E6E3F5" alt="vLLM"></td></tr>
+<tr><td width="14%"><sub><b>HPC &amp; SciML</b></sub></td><td><img src="https://img.shields.io/badge/Linux-4A3B8C?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux"> <img src="https://img.shields.io/badge/Slurm_%26_HPC-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm and HPC"> <img src="https://img.shields.io/badge/CUDA-AD642E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA"> <img src="https://img.shields.io/badge/PyTorch-73421A?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch"> <img src="https://img.shields.io/badge/Hugging_Face-8F5422?style=for-the-badge&logo=huggingface&logoColor=E6E3F5" alt="Hugging Face"></td></tr>
+<tr><td width="14%"><sub><b>Physics</b></sub></td><td><img src="https://img.shields.io/badge/Quantum_ESPRESSO-73421A?style=for-the-badge&logo=qiskit&logoColor=E6E3F5" alt="Quantum ESPRESSO"> <img src="https://img.shields.io/badge/NumPy-8F5422?style=for-the-badge&logo=numpy&logoColor=E6E3F5" alt="NumPy"> <img src="https://img.shields.io/badge/SciPy-4A3B8C?style=for-the-badge&logo=scipy&logoColor=E6E3F5" alt="SciPy"> <img src="https://img.shields.io/badge/MATLAB-AD642E?style=for-the-badge&logo=octave&logoColor=E6E3F5" alt="MATLAB"></td></tr>
+<tr><td width="14%"><sub><b>ship</b></sub></td><td><img src="https://img.shields.io/badge/Git-8F5422?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git"> <img src="https://img.shields.io/badge/Docker-4A3B8C?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker"> <img src="https://img.shields.io/badge/vLLM-AD642E?style=for-the-badge&logo=vllm&logoColor=E6E3F5" alt="vLLM"></td></tr>
 </table>
+
+<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+
+<img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 
 <!-- REPOS:START -->
 
@@ -59,16 +63,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
 <!-- REPOS:END -->
-
-<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
-
-<img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
-
-<sub><b>coffee &middot; study &middot; hpc</b></sub>
-
-<p align="center">
-  <img src="assets/art/pixel-coffee.svg" width="31%" alt="Pixel art: coffee steaming under a hanging lamp"> <img src="assets/art/pixel-study.svg" width="31%" alt="Pixel art: a desk lamp, a book and a mug by a starry window"> <img src="assets/art/pixel-hpc.svg" width="31%" alt="Pixel art: a home workstation running a band structure next to a job queue">
-</p>
 
 <sub><b>stuff i've built</b></sub>
 
