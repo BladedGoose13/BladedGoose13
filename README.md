@@ -32,8 +32,8 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 <table>
 <tr><td colspan="2"><sub><b>past year</b></sub></td></tr>
-<tr><td>contributions</td><td align="right"><b>233</b></td></tr>
-<tr><td>commits</td><td align="right"><b>217</b></td></tr>
+<tr><td>contributions</td><td align="right"><b>235</b></td></tr>
+<tr><td>commits</td><td align="right"><b>218</b></td></tr>
 <tr><td>public repos</td><td align="right"><b>7</b></td></tr>
 <tr><td>longest streak</td><td align="right"><b>4</b> days</td></tr>
 </table>
@@ -52,7 +52,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 |---|---|---|--:|--:|
 | [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 612 KB | ★ 1 |
 | [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `███████████···` | 491 KB | ★ 1 |
-| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 60 KB |  |
+| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 61 KB |  |
 | [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 28 KB |  |
 | [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 25 KB |  |
 | [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
