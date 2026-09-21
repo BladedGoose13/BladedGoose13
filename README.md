@@ -7,7 +7,7 @@
 </td>
 <td width="66%">
 
-<h1>What about me? Not much &mdash; Maxitq</h1>
+<h1>What about me? Not much</h1>
 
 <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=20&pause=1200&duration=4200&color=C08040&center=false&vCenter=true&width=700&height=42&lines=Computational+Physics+and+Scientific+Machine+Learning" alt="Computational Physics and Scientific Machine Learning">
 
