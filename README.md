@@ -54,7 +54,6 @@ So every stage restarts clean, and the expensive part only runs on the configura
 
 </td></tr></table>
 
-<img src="assets/pipeline.svg" alt="ingest, check, simulate, reduce, learn, serve — and the loop back to the start" width="100%">
 
 <sub><b>the numbers</b></sub>
 
