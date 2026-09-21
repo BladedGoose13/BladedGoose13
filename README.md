@@ -64,7 +64,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | public repos | **7** |
 | longest streak | **4** days |
 
-<details>
 <summary><sub><b>every public repo</b></sub></summary>
 
 | repo | language | | size | |
@@ -77,7 +76,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
 | [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
-</details>
 
 <!-- STATS:END -->
 
