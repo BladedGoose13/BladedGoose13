@@ -2,11 +2,24 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=21&pause=1200&duration=4200&color=C08040&center=false&vCenter=true&width=820&height=46&lines=Computational+Physics+and+Scientific+Machine+Learning" alt="Computational Physics and Scientific Machine Learning">
 
+<table><tr><td width="34%">
+
+<img src="assets/art/workstation.jpg" width="100%" alt="A workstation at night, three monitors against a rainy skyline">
+
+</td><td width="66%">
+
 I'm into computational physics and scientific computing, lately a lot of SciML. Pretty much anything with computing and data.
 
 I like hard problems and building sharp architectures for autonomous systems that solve them. My main projects so far involve AI for materials discovery using AI and Density Functional Theory in HPC for spintronics. 
 
 Long term I want to do research in deep tech or R&D, and get really good at HPC, machine learning and parallel computing for applied science.
+
+</td></tr></table>
+
+
+<sub><b>the numbers</b></sub>
+
+<table><tr><td width="58%">
 
 <sub><b>languages</b></sub>
 <p>
@@ -39,25 +52,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 </p>
 
 <sub><b>how i build things</b></sub>
-
-<table><tr><td width="34%">
-
-<img src="assets/art/workstation.jpg" width="100%" alt="A workstation at night, three monitors against a rainy skyline">
-
-</td><td width="66%">
-
-Something measures or simulates the world, something else checks it hasn't drifted, and then a model decides what's worth computing next.
-
-The rule I don't bend: **nothing important lives only on my laptop**. If a figure can't be traced back to the run that made it, it isn't a result yet, it's a screenshot.
-
-So every stage restarts clean, and the expensive part only runs on the configurations the surrogate is actually unsure about.
-
-</td></tr></table>
-
-
-<sub><b>the numbers</b></sub>
-
-<table><tr><td width="58%">
 
 <!-- STATS:START -->
 
