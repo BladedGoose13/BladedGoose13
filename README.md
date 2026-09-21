@@ -50,17 +50,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 
-<!-- REPOS:START -->
 
-| repo | language | | size | |
-|---|---|---|--:|--:|
-| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 612 KB | ★ 1 |
-| [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `███████████···` | 491 KB | ★ 1 |
-| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 61 KB |  |
-| [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 28 KB |  |
-| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 25 KB |  |
-| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
-| [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
 <!-- REPOS:END -->
 
