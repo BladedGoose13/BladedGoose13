@@ -17,7 +17,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 </td></tr></table>
 
 
-<sub><b>the numbers</b></sub>
+<sub><b>My tools</b></sub>
 
 <table><tr><td width="58%">
 
@@ -53,8 +53,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 </td></tr></table>
 
-<sub><b>how i build things</b></sub>
-
 <!-- STATS:START -->
 
 <!-- generated: live -->
@@ -65,71 +63,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | commits | **209** |
 | public repos | **7** |
 | longest streak | **4** days |
-
-**by month** &nbsp; `▅█▁▅▃▂▂▇▂▂▁▂` &nbsp; peak **56**
-
-| day | | |
-|---|---|--:|
-| sun | `█████████·············` | 22 |
-| mon | `████████████··········` | 31 |
-| tue | `██████████████████████` | 55 |
-| wed | `██████················` | 15 |
-| thu | `██████████············` | 24 |
-| fri | `██████████████········` | 36 |
-| sat | `████████████████······` | 41 |
-
-| language | | share |
-|---|---|--:|
-| Gnuplot | `██████████████████████` | 42% |
-| HTML | `█████████████·········` | 24% |
-| Python | `██████████············` | 19% |
-| Jupyter Notebook | `████··················` | 8% |
-| CSS | `████··················` | 7% |
-
-<sub>1 MB of source across 7 public repos</sub>
-
-| repo | | size |
-|---|---|--:|
-| [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | `██████████████████████` | 612 KB |
-| [PathWise](https://github.com/BladedGoose13/PathWise) | `██████████████████····` | 491 KB |
-| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | `██····················` | 62 KB |
-| [Portfolio](https://github.com/BladedGoose13/Portfolio) | `█·····················` | 28 KB |
-| [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | `█·····················` | 25 KB |
-| [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | `█·····················` | 5 KB |
-
-<!-- STATS:END -->
-
-</td><td width="42%">
-
-<img src="assets/art/nook.jpg" width="100%" alt="A pixel-art study nook at night">
-
-</td></tr></table>
-
-<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
-
-<img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
-
-<!-- EXTRA:START -->
-
-<details>
-<summary><sub><b>month by month</b></sub></summary>
-
-| month | | |
-|---|---|--:|
-| oct | `████████████··········` | 31 |
-| nov | `██████████████████████` | 56 |
-| dec | `······················` | 0 |
-| jan | `████████████··········` | 30 |
-| feb | `█████·················` | 12 |
-| mar | `██····················` | 5 |
-| apr | `████··················` | 11 |
-| may | `████████████████████··` | 50 |
-| jun | `██····················` | 6 |
-| jul | `████··················` | 10 |
-| aug | `█·····················` | 3 |
-| sep | `████··················` | 10 |
-
-</details>
 
 <details>
 <summary><sub><b>every public repo</b></sub></summary>
@@ -145,6 +78,20 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
 </details>
+
+<!-- STATS:END -->
+
+</td><td width="42%">
+
+<img src="assets/art/nook.jpg" width="100%" alt="A pixel-art study nook at night">
+
+</td></tr></table>
+
+<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+
+<img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
+
+<!-- EXTRA:START -->
 
 <!-- EXTRA:END -->
 
