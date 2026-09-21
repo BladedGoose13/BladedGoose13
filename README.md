@@ -2,12 +2,11 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=21&pause=1200&duration=4200&color=C08040&center=false&vCenter=true&width=820&height=46&lines=Computational+Physics+and+Scientific+Machine+Learning" alt="Computational Physics and Scientific Machine Learning">
 
-I love the intersection of computational physics, scientific computing (maybe SciML), and data-driven industries!
-And love solving challenges and creating pipeline architectures, building autonomous systems is my specialty!
+I'm into computational physics and scientific computing, lately a lot of SciML. Pretty much anything with computing and data.
 
-**Computational physics · quantitative research · scientific computing.**
+I like hard problems and building sharp architectures for autonomous systems that solve them. My main projects so far involve AI for materials discovery using AI and Density Functional Theory in HPC for spintronics. 
 
-I like problems where the math has to survive contact with real data. Long term I want to be doing research inside deep tech or R&D, somewhere computation is the product rather than the paperwork.
+Long term I want to do research in deep tech or R&D, and get really good at HPC, machine learning and parallel computing for applied science.
 
 <sub><b>languages</b></sub>
 <p>
