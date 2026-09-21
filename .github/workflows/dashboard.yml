@@ -49,6 +49,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # snk writes into this directory; if it has to create it and cannot,
+      # the step below fails silently past continue-on-error and the card
+      # quietly loses its animation. One mkdir removes the question.
+      - name: Make room for the snake
+        run: mkdir -p build
+
       - name: Render the snake
         # Raw input, never committed. The composer transplants this into the
         # calendar card and rewrites its palette from scripts/palette.py, so
@@ -64,6 +70,17 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: build/snake.svg
+
+      # continue-on-error hides a failed render, and the composer's fallback
+      # is deliberately quiet, so a silently snake-less calendar would look
+      # exactly like a healthy run. Say which one this is, in the log.
+      - name: Did the snake render?
+        run: |
+          if [ -s build/snake.svg ]; then
+            echo "snake rendered ($(wc -c < build/snake.svg) bytes); composing it into the card"
+          else
+            echo "::warning::snk produced no build/snake.svg; the calendar falls back to a static grid this run"
+          fi
 
       - name: Regenerate figures
         env:
