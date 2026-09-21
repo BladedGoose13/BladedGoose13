@@ -1,13 +1,12 @@
 name: dashboard
 
-# Regenerates the profile's live figures from the GitHub API and commits
-# them: the calendar card in assets/, and the markdown stats block inside
-# README.md between the STATS markers.
+# Refreshes the markdown stats block inside README.md, between the STATS
+# markers, from the GitHub API.
 #
-# The snake used to be its own workflow writing its own image, which put two
-# renderings of the same year on the page in two different visual languages.
-# It is now composed into the calendar card here, which is why snk runs in
-# this job: its output is raw input to the composer, not an asset.
+# The contribution grid is the snake's job, in snake.yml. This used to also
+# render a calendar card and compose the snake into it; one figure was
+# simpler to look at but harder to keep working, so the snake stands on its
+# own again and this workflow only keeps the numbers current.
 #
 # Both are committed rather than fetched from a third-party card service,
 # because those go down -- at the time this was written the public
@@ -49,39 +48,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      # snk writes into this directory; if it has to create it and cannot,
-      # the step below fails silently past continue-on-error and the card
-      # quietly loses its animation. One mkdir removes the question.
-      - name: Make room for the snake
-        run: mkdir -p build
-
-      - name: Render the snake
-        # Raw input, never committed. The composer transplants this into the
-        # calendar card and rewrites its palette from scripts/palette.py, so
-        # no colour is named here -- which is what stops the snake drifting
-        # out of the design the way it did when the hex lived in this file.
-        #
-        # Allowed to fail: snk talks to the API on its own, and a bad day for
-        # it should not cost the calendar and the stats. The composer falls
-        # back to drawing a static grid, and the next run picks the snake up
-        # again.
-        continue-on-error: true
-        uses: Platane/snk@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: build/snake.svg
-
-      # continue-on-error hides a failed render, and the composer's fallback
-      # is deliberately quiet, so a silently snake-less calendar would look
-      # exactly like a healthy run. Say which one this is, in the log.
-      - name: Did the snake render?
-        run: |
-          if [ -s build/snake.svg ]; then
-            echo "snake rendered ($(wc -c < build/snake.svg) bytes); composing it into the card"
-          else
-            echo "::warning::snk produced no build/snake.svg; the calendar falls back to a static grid this run"
-          fi
-
       - name: Regenerate figures
         env:
           # METRICS_TOKEN is optional: a classic PAT with read:user also counts
@@ -90,7 +56,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           PROFILE_LOGIN: ${{ github.repository_owner }}
         run: |
-          python scripts/build_dashboard.py
           python scripts/build_tables.py
 
       - name: Commit if changed
