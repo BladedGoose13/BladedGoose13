@@ -36,8 +36,8 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 | | past year |
 |---|--:|
-| contributions | **224** |
-| commits | **209** |
+| contributions | **233** |
+| commits | **217** |
 | public repos | **7** |
 | longest streak | **4** days |
 
@@ -45,12 +45,11 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 |---|---|---|--:|--:|
 | [QE-Workflow](https://github.com/BladedGoose13/QE-Workflow) | Gnuplot | `██████████████` | 612 KB | ★ 1 |
 | [PathWise](https://github.com/BladedGoose13/PathWise) | HTML | `███████████···` | 491 KB | ★ 1 |
-| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 62 KB |  |
+| [BladedGoose13](https://github.com/BladedGoose13/BladedGoose13) | Python | `█·············` | 60 KB |  |
 | [Portfolio](https://github.com/BladedGoose13/Portfolio) | HTML | `█·············` | 28 KB |  |
 | [ThermoHub.Sim---V1.0](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0) | Python | `█·············` | 25 KB |  |
 | [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
 | [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
-
 
 <!-- STATS:END -->
 
