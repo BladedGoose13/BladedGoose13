@@ -22,6 +22,8 @@ from build_dashboard import fetch, human_bytes, seed, shape
 
 START = "<!-- STATS:START -->"
 END = "<!-- STATS:END -->"
+R_START = "<!-- REPOS:START -->"
+R_END = "<!-- REPOS:END -->"
 LIVE_MARK = "<!-- generated: live -->"
 SPARK = "▁▂▃▄▅▆▇█"
 FULL, EMPTY_C = "█", "·"
@@ -39,35 +41,44 @@ def num(n):
     return "—" if n is None else "{:,}".format(n)
 
 
-def render(d):
-    """The whole live block: headline figures, then the repositories.
+def render_kpi(d):
+    """The headline figures, as HTML rather than markdown.
 
-    Deliberately short. The month, weekday and language breakdowns were
-    dropped because they said more about the generator than about the work.
+    This block is injected into a <td> so it can sit beside the tool
+    badges. GitHub does parse markdown inside block-level HTML, but a
+    table nested that way is the one construct that cannot be checked
+    outside GitHub itself -- and the content is generated either way, so
+    emitting HTML costs nothing and removes the doubt entirely. It renders
+    with the same styling as the markdown tables around it.
     """
-    L = []
+    L = [LIVE_MARK if d["live"] else "<!-- generated: seed -->", ""]
     a = L.append
-    a(LIVE_MARK if d["live"] else "<!-- generated: seed -->")
-    a("")
-    a("| | past year |")
-    a("|---|--:|")
-    a("| contributions | **%s** |" % num(d["contribs"]))
-    a("| commits | **%s** |" % num(d["commits"]))
-    a("| public repos | **%s** |" % num(d["repos"]))
-    a("| longest streak | **%s** days |" % num(d["best"]))
-    a("")
+    a("<table>")
+    a('<tr><td colspan="2"><sub><b>past year</b></sub></td></tr>')
+    # Only the figure is bold; the unit stays plain, so the column reads as
+    # numbers with a suffix rather than four bolded phrases.
+    for label, value, unit in (("contributions", num(d["contribs"]), ""),
+                               ("commits", num(d["commits"]), ""),
+                               ("public repos", num(d["repos"]), ""),
+                               ("longest streak", num(d["best"]), " days")):
+        a('<tr><td>%s</td><td align="right"><b>%s</b>%s</td></tr>' % (label, value, unit))
+    a("</table>")
+    return "\n".join(L)
 
+
+def render_repos(d):
+    """Public repositories, widest first. Markdown -- it runs full width."""
     rows = d.get("repo_rows") or []
-    if rows:
-        top = rows[0][2] or 1
-        login = os.environ.get("PROFILE_LOGIN", "BladedGoose13")
-        a("| repo | language | | size | |")
-        a("|---|---|---|--:|--:|")
-        for name, lang, size, stars in rows:
-            a("| [%s](https://github.com/%s/%s) | %s | `%s` | %s | %s |"
-              % (name, login, name, lang, bar(size, top, 14), human_bytes(size),
-                 ("\u2605 %d" % stars) if stars else ""))
-    return "\n".join(L).rstrip()
+    if not rows:
+        return ""
+    top = rows[0][2] or 1
+    login = os.environ.get("PROFILE_LOGIN", "BladedGoose13")
+    L = ["| repo | language | | size | |", "|---|---|---|--:|--:|"]
+    for name, lang, size, stars in rows:
+        L.append("| [%s](https://github.com/%s/%s) | %s | `%s` | %s | %s |"
+                 % (name, login, name, lang, bar(size, top, 14), human_bytes(size),
+                    ("\u2605 %d" % stars) if stars else ""))
+    return "\n".join(L)
 
 
 def guard_readme(readme, live, force):
@@ -113,7 +124,8 @@ if __name__ == "__main__":
     readme = os.path.join(root, "README.md")
     guard_readme(readme, data["live"], "--force" in sys.argv)
     out = open(readme, encoding="utf-8").read()
-    out = inject(out, render(data), START, END, readme)
+    out = inject(out, render_kpi(data), START, END, readme)
+    out = inject(out, render_repos(data), R_START, R_END, readme)
     with open(readme, "w", encoding="utf-8") as fh:
         fh.write(out)
     print("updated README.md stats block (live=%s)" % data["live"])

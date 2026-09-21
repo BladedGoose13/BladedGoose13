@@ -24,22 +24,29 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 <sub><b>my tools</b></sub>
 
 <table>
-<tr><td width="18%"><sub><b>core</b></sub></td><td><img src="https://img.shields.io/badge/Python-73421A?style=for-the-badge&logo=python&logoColor=E6E3F5" alt="Python"> <img src="https://img.shields.io/badge/C%2B%2B-4A3B8C?style=for-the-badge&logo=cplusplus&logoColor=E6E3F5" alt="C++"> <img src="https://img.shields.io/badge/Bash-5E4A9E?style=for-the-badge&logo=gnubash&logoColor=E6E3F5" alt="Bash"></td></tr>
-<tr><td width="18%"><sub><b>scientific</b></sub></td><td><img src="https://img.shields.io/badge/NumPy-8F5422?style=for-the-badge&logo=numpy&logoColor=E6E3F5" alt="NumPy"> <img src="https://img.shields.io/badge/SciPy-4A3B8C?style=for-the-badge&logo=scipy&logoColor=E6E3F5" alt="SciPy"> <img src="https://img.shields.io/badge/PyTorch-73421A?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch"></td></tr>
-<tr><td width="18%"><sub><b>hpc &amp; physics</b></sub></td><td><img src="https://img.shields.io/badge/Quantum_ESPRESSO-73421A?style=for-the-badge&logo=qiskit&logoColor=E6E3F5" alt="Quantum ESPRESSO"> <img src="https://img.shields.io/badge/Linux-4A3B8C?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux"> <img src="https://img.shields.io/badge/Slurm_%26_HPC-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm and HPC"> <img src="https://img.shields.io/badge/CUDA-AD642E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA"></td></tr>
-<tr><td width="18%"><sub><b>ship</b></sub></td><td><img src="https://img.shields.io/badge/Git-8F5422?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git"> <img src="https://img.shields.io/badge/Docker-4A3B8C?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker"></td></tr>
-</table>
+<tr><td width="14%"><sub><b>core</b></sub></td><td><img src="https://img.shields.io/badge/Python-73421A?style=for-the-badge&logo=python&logoColor=E6E3F5" alt="Python"> <img src="https://img.shields.io/badge/C%2B%2B-4A3B8C?style=for-the-badge&logo=cplusplus&logoColor=E6E3F5" alt="C++"> <img src="https://img.shields.io/badge/Bash-5E4A9E?style=for-the-badge&logo=gnubash&logoColor=E6E3F5" alt="Bash"></td><td width="26%" rowspan="4" valign="top">
 
 <!-- STATS:START -->
 
 <!-- generated: live -->
 
-| | past year |
-|---|--:|
-| contributions | **233** |
-| commits | **217** |
-| public repos | **7** |
-| longest streak | **4** days |
+<table>
+<tr><td colspan="2"><sub><b>past year</b></sub></td></tr>
+<tr><td>contributions</td><td align="right"><b>233</b></td></tr>
+<tr><td>commits</td><td align="right"><b>217</b></td></tr>
+<tr><td>public repos</td><td align="right"><b>7</b></td></tr>
+<tr><td>longest streak</td><td align="right"><b>4</b> days</td></tr>
+</table>
+
+<!-- STATS:END -->
+
+</td></tr>
+<tr><td width="18%"><sub><b>scientific</b></sub></td><td><img src="https://img.shields.io/badge/NumPy-8F5422?style=for-the-badge&logo=numpy&logoColor=E6E3F5" alt="NumPy"> <img src="https://img.shields.io/badge/SciPy-4A3B8C?style=for-the-badge&logo=scipy&logoColor=E6E3F5" alt="SciPy"> <img src="https://img.shields.io/badge/PyTorch-73421A?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch"> <img src="https://img.shields.io/badge/MATLAB-AD642E?style=for-the-badge&logo=octave&logoColor=E6E3F5" alt="MATLAB"></td></tr>
+<tr><td width="18%"><sub><b>hpc &amp; physics</b></sub></td><td><img src="https://img.shields.io/badge/Quantum_ESPRESSO-73421A?style=for-the-badge&logo=qiskit&logoColor=E6E3F5" alt="Quantum ESPRESSO"> <img src="https://img.shields.io/badge/Linux-4A3B8C?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux"> <img src="https://img.shields.io/badge/Slurm_%26_HPC-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm and HPC"> <img src="https://img.shields.io/badge/CUDA-AD642E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA"></td></tr>
+<tr><td width="18%"><sub><b>ship</b></sub></td><td><img src="https://img.shields.io/badge/Git-8F5422?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git"> <img src="https://img.shields.io/badge/Docker-4A3B8C?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker"> <img src="https://img.shields.io/badge/vLLM-AD642E?style=for-the-badge&logo=vllm&logoColor=E6E3F5" alt="vLLM"></td></tr>
+</table>
+
+<!-- REPOS:START -->
 
 | repo | language | | size | |
 |---|---|---|--:|--:|
@@ -51,7 +58,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 | [STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama) | Python | `█·············` | 5 KB |  |
 | [ESG-Framework-LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO) | — | `··············` | 0 B |  |
 
-<!-- STATS:END -->
+<!-- REPOS:END -->
 
 <img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
 
