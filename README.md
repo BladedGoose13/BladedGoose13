@@ -32,8 +32,8 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 <table>
 <tr><td colspan="2"><sub><b>past year</b></sub></td></tr>
-<tr><td>contributions</td><td align="right"><b>244</b></td></tr>
-<tr><td>commits</td><td align="right"><b>224</b></td></tr>
+<tr><td>contributions</td><td align="right"><b>246</b></td></tr>
+<tr><td>commits</td><td align="right"><b>225</b></td></tr>
 <tr><td>public repos</td><td align="right"><b>7</b></td></tr>
 <tr><td>longest streak</td><td align="right"><b>4</b> days</td></tr>
 </table>
