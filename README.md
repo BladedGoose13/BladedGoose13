@@ -46,9 +46,17 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 <tr><td width="14%"><sub><b>ship</b></sub></td><td><img src="https://img.shields.io/badge/Git-8F5422?style=for-the-badge&logo=git&logoColor=E6E3F5" alt="Git"> <img src="https://img.shields.io/badge/Docker-4A3B8C?style=for-the-badge&logo=docker&logoColor=E6E3F5" alt="Docker"> <img src="https://img.shields.io/badge/vLLM-AD642E?style=for-the-badge&logo=vllm&logoColor=E6E3F5" alt="vLLM"></td></tr>
 </table>
 
-<img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+<a href="https://github.com/BladedGoose13">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="assets/calendar-light.svg">
+    <img src="assets/calendar.svg" alt="A year of contributions, day by day" width="100%">
+  </picture>
+</a>
 
-<img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="assets/snake-light.svg">
+  <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
+</picture>
 
 <!-- REPOS:START -->
 

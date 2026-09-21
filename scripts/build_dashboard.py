@@ -22,7 +22,8 @@ import urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import charts as ch
 from charts import F
-from palette import ACCENT, INK, INK_2, INK_3, backdrop
+import palette as P
+from palette import backdrop
 
 LOGIN = os.environ.get("PROFILE_LOGIN", "BladedGoose13")
 API = "https://api.github.com/graphql"
@@ -193,9 +194,9 @@ def month_labels(weeks):
 
 def head(o, w, title, note):
     o.append('<text x="24" y="30" font-family=%s font-size="17" font-weight="700" fill="%s">'
-             '%s</text>' % (F, INK, title))
+             '%s</text>' % (F, P.INK, title))
     o.append('<text x="%d" y="30" text-anchor="end" font-family=%s font-size="11.5" fill="%s">'
-             '%s</text>' % (w - 24, F, INK_3, note))
+             '%s</text>' % (w - 24, F, P.INK_3, note))
 
 
 # Set once in __main__; read by open_svg so each asset records whether it
@@ -224,15 +225,15 @@ def build_calendar(d):
     if d["weeks"]:
         for i, lab in month_labels(d["weeks"]):
             o.append('<text x="%d" y="%d" font-family=%s font-size="11" fill="%s">%s</text>'
-                     % (gx + i * (cell + gap), gy - 10, F, INK_3, lab))
+                     % (gx + i * (cell + gap), gy - 10, F, P.INK_3, lab))
         for wd, lab in ((1, "mon"), (3, "wed"), (5, "fri")):
             o.append('<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="10.5" '
-                     'fill="%s">%s</text>' % (gx - 10, gy + wd * (cell + gap) + 11, F, INK_3, lab))
+                     'fill="%s">%s</text>' % (gx - 10, gy + wd * (cell + gap) + 11, F, P.INK_3, lab))
         o.append(ch.heatmap(gx, gy, d["weeks"], d["peak"], cell=cell, gap=gap))
         o.append(ch.heat_legend(W - 190, gy + 7 * (cell + gap) + 12, cell=cell, gap=gap))
     else:
         o.append('<text x="%d" y="%d" font-family=%s font-size="13" fill="%s">the calendar '
-                 'fills in on the first scheduled sync</text>' % (gx, gy + 60, F, INK_3))
+                 'fills in on the first scheduled sync</text>' % (gx, gy + 60, F, P.INK_3))
     o.append("</svg>")
     return "".join(o)
 
@@ -291,15 +292,22 @@ if __name__ == "__main__":
         data = seed()
     DATA_SOURCE = "live" if data["live"] else "seed"
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    targets = [os.path.join(root, "assets", "calendar.svg")]
+    # One figure per theme. GitHub serves them through <picture>, so a
+    # visitor on the light theme no longer gets a dark card on a white page.
+    variants = (("calendar", "dark"), ("calendar-light", "light"))
+    targets = [os.path.join(root, "assets", "%s.svg" % n) for n, _ in variants]
     guard(targets, data["live"], "--force" in sys.argv)
     written = []
-    for name, svg in (("calendar", build_calendar(data)),):
+    for name, theme in variants:
+        P.set_theme(theme)
+        svg = build_calendar(data)
         dest = os.path.join(root, "assets", "%s.svg" % name)
         with open(dest, "w", encoding="ascii") as fh:
             fh.write(svg.encode("ascii", "xmlcharrefreplace").decode())
         written.append(os.path.relpath(dest, root))
-        print("wrote %s (%.1f KB, live=%s)" % (dest, len(svg.encode()) / 1024.0, data["live"]))
+        print("wrote %s (%.1f KB, %s, live=%s)"
+              % (dest, len(svg.encode()) / 1024.0, theme, data["live"]))
+    P.set_theme("dark")
 
     # Record exactly what was written so the workflow stages these and only
     # these. The workflow used to name assets/dashboard.svg by hand, which
