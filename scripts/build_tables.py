@@ -103,10 +103,28 @@ def guard_readme(readme, live, force):
             "committing\nplaceholders. Pass --force only if replacing it is intended.")
 
 
-def inject(text, block, start, end, readme):
+def inject(text, block, start, end, readme, required=True):
+    """Replace everything between a marker pair, leaving the rest alone.
+
+    Absent markers mean two different things, so they are treated
+    differently. Both gone is an editorial decision -- the repo table was
+    cut from the README by hand, and a generator has no business putting
+    it back every night -- so an optional block is skipped. Exactly one
+    gone is an accident: an edit that swallowed the opening marker and
+    left the closing one. That is worth failing on, because silently
+    writing nothing would leave a dead marker in the file forever.
+    """
     i, j = text.find(start), text.find(end)
+    if i == -1 and j == -1:
+        if required:
+            raise SystemExit("markers %s / %s not found in %s" % (start, end, readme))
+        return text
     if i == -1 or j == -1:
-        raise SystemExit("markers %s / %s not found in %s" % (start, end, readme))
+        raise SystemExit(
+            "half a marker pair in %s: found %s but not %s.\n\nOne of the two was"
+            " removed by hand. Restore it to bring the block back,\nor remove the"
+            " other one too to drop the block for good."
+            % (readme, end if i == -1 else start, start if i == -1 else end))
     return text[:i + len(start)] + "\n\n" + block + "\n\n" + text[j:]
 
 
@@ -125,7 +143,9 @@ if __name__ == "__main__":
     guard_readme(readme, data["live"], "--force" in sys.argv)
     out = open(readme, encoding="utf-8").read()
     out = inject(out, render_kpi(data), START, END, readme)
-    out = inject(out, render_repos(data), R_START, R_END, readme)
+    # Optional: the README currently has no repo table, and re-adding both
+    # markers anywhere in it is all it takes to get one back.
+    out = inject(out, render_repos(data), R_START, R_END, readme, required=False)
     with open(readme, "w", encoding="utf-8") as fh:
         fh.write(out)
     print("updated README.md stats block (live=%s)" % data["live"])
