@@ -222,15 +222,23 @@ def heatmap(x, y, weeks, peak, cell=11, gap=3):
     return "".join(o)
 
 
-def heat_legend(x, y, cell=11, gap=3):
+def heat_legend(x, y, cell=11, gap=3, colors=None):
+    """less -> more, in the same steps the grid beside it was drawn with.
+
+    The steps are a parameter because the grid is not always drawn here:
+    when the snake renders it the levels come from snk, which supports
+    four, and a legend showing five would be describing a ramp the cells
+    never use.
+    """
+    cols = colors or P.RAMP
     o = ['<text x="%d" y="%d" text-anchor="end" font-family=%s font-size="11" fill="%s">less</text>'
          % (x - 10, y + cell - 1, F, P.INK_3)]
     o.append('<rect x="%d" y="%d" width="%d" height="%d" rx="2.5" fill="%s"/>' % (x, y, cell, cell, P.EMPTY))
-    for i in range(5):
+    for i, col in enumerate(cols):
         o.append('<rect x="%d" y="%d" width="%d" height="%d" rx="2.5" fill="%s"/>'
-                 % (x + (i + 1) * (cell + gap), y, cell, cell, P.RAMP[i]))
+                 % (x + (i + 1) * (cell + gap), y, cell, cell, col))
     o.append('<text x="%d" y="%d" font-family=%s font-size="11" fill="%s">more</text>'
-             % (x + 6 * (cell + gap) + 10, y + cell - 1, F, P.INK_3))
+             % (x + (len(cols) + 1) * (cell + gap) + 10, y + cell - 1, F, P.INK_3))
     return "".join(o)
 
 
