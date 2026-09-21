@@ -76,7 +76,7 @@ def lerp(c1, c2, t):
 
 
 def ramp(t, colors=None):
-    colors = colors or RAMP
+    colors = colors or globals()["RAMP"]
     t = max(0.0, min(1.0, t))
     if t >= 1.0:
         return colors[-1]
@@ -87,8 +87,54 @@ def ramp(t, colors=None):
 
 def step(i, n=None):
     if n is None or n <= 1:
-        return RAMP[min(i, len(RAMP) - 1)]
+        return globals()["RAMP"][min(i, len(globals()["RAMP"]) - 1)]
     return ramp(i / (n - 1))
+
+
+# -- light theme ------------------------------------------------------------
+# Selected, not inverted. The ramp was re-searched in the same coffee hue
+# window and re-validated against the light glass surface (#EFECF3, the light
+# page under a 4% black card): monotone lightness, adjacent dL >= 0.06, light
+# end 2.04:1, single hue at 11 deg spread. It runs light -> dark, because on a
+# light ground "more" reads as darker -- the opposite of the dark ramp.
+LIGHT = {
+    "PAGE": "#F7F4FB",
+    "PAGE_2": "#EFE9F6",
+    "SHADOW": "#D9D2E4",
+    "GLASS_FILL": "#3A2A52",     # a dark wash on light, not a white one
+    "GLASS_OP": 0.045,
+    "GLASS_OP_2": 0.025,
+    "GLASS_HI": 0.05,
+    "EDGE": "#B9AFCC",
+    "CARD_2": "#E4DEEE",
+    "CREAM": "#2A2038",
+    "BLOB_VIOLET": "#C9BEEA",
+    "BLOB_INDIGO": "#BFC6EE",
+    "BLOB_COFFEE": "#E8CFAE",
+    "BLOB_PLUM": "#DCC2E4",
+    "INK": "#241B33",
+    "INK_2": "#544A66",
+    "INK_3": "#6E6482",
+    "ACCENT": "#8A5520",
+    "ACCENT_SOFT": "#E0B98A",
+    "SAGE": "#6B5BB5",
+    "EMPTY": "#E2DCEC",
+    "RAMP": ["#EC933E", "#D8730A", "#BC590A", "#96490A", "#74370A"],
+}
+
+_DARK = None
+
+
+def set_theme(name):
+    """Swap the module globals between the dark and light sets.
+
+    Call sites read these through the module (`import palette as P`) rather
+    than binding the names at import, so a swap here reaches them.
+    """
+    global _DARK
+    if _DARK is None:
+        _DARK = {k: globals()[k] for k in LIGHT}
+    globals().update(_DARK if name == "dark" else LIGHT)
 
 
 def backdrop(w, h, seed=0):
@@ -98,10 +144,11 @@ def backdrop(w, h, seed=0):
     blobs are what the translucent cards pick up; without them a 7% white
     fill on a flat ground just looks grey.
     """
-    blobs = [(0.14, 0.12, 0.54, BLOB_VIOLET, 0.50),
-             (0.84, 0.16, 0.46, BLOB_INDIGO, 0.46),
-             (0.66, 0.86, 0.48, BLOB_PLUM, 0.34),
-             (0.28, 0.82, 0.42, BLOB_COFFEE, 0.26)]
+    g = globals()
+    blobs = [(0.14, 0.12, 0.54, g["BLOB_VIOLET"], 0.50),
+             (0.84, 0.16, 0.46, g["BLOB_INDIGO"], 0.46),
+             (0.66, 0.86, 0.48, g["BLOB_PLUM"], 0.34),
+             (0.28, 0.82, 0.42, g["BLOB_COFFEE"], 0.26)]
     o = ['<defs>']
     for i, (_, _, _, col, _) in enumerate(blobs):
         o.append('<radialGradient id="blob%d_%d" cx=".5" cy=".5" r=".5">'
@@ -115,7 +162,7 @@ def backdrop(w, h, seed=0):
              '<stop offset="1" stop-color="#FFFFFF" stop-opacity=".05"/>'
              '</linearGradient>' % seed)
     o.append('</defs>')
-    o.append('<rect width="%d" height="%d" rx="16" fill="%s"/>' % (w, h, PAGE))
+    o.append('<rect width="%d" height="%d" rx="16" fill="%s"/>' % (w, h, g["PAGE"]))
     for i, (cx, cy, r, col, op) in enumerate(blobs):
         rr = r * max(w, h)
         o.append('<ellipse cx="%.0f" cy="%.0f" rx="%.0f" ry="%.0f" fill="url(#blob%d_%d)" '
