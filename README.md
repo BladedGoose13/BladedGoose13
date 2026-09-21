@@ -58,10 +58,6 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
   <img src="assets/snake.svg" alt="My contribution grid, eaten by a snake" width="100%">
 </picture>
 
-
-
-<!-- REPOS:END -->
-
 <sub><b>stuff i've built</b></sub>
 
 **[QE-Workflow](https://github.com/BladedGoose13/QE-Workflow)** &mdash; silicon-doped graphene band structures with Quantum ESPRESSO. reproduced the known graphene bands first to prove the setup wasn't lying to me, then went after Si doping with the Virtual Crystal Approximation. poster at Tec Science Summit 2026
