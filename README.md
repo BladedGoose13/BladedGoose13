@@ -51,6 +51,8 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
   <img src="https://img.shields.io/badge/KiCad-5E4A9E?style=for-the-badge&logo=kicad&logoColor=E6E3F5" alt="KiCad"> <img src="https://img.shields.io/badge/ESP32-73421A?style=for-the-badge&logo=espressif&logoColor=E6E3F5" alt="ESP32"> <img src="https://img.shields.io/badge/Arduino-4A3B8C?style=for-the-badge&logo=arduino&logoColor=E6E3F5" alt="Arduino">
 </p>
 
+</td></tr></table>
+
 <sub><b>how i build things</b></sub>
 
 <!-- STATS:START -->
