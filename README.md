@@ -13,7 +13,7 @@
 
 I'm into computational physics and scientific computing, lately a lot of SciML. Pretty much anything with computing and data.
 
-Im a really multidisciplinary person, I enjoy computation a lot, from the software to the hardware to the materials within the computer itself, however I am currently focusing on Computational Science (Condensed Matter!) and Mathematics. My main projects so far involve materials discovery using AI and Density Functional Theory in HPC for spintronics.
+Im a really multidisciplinary person, I enjoy computation a lot, from the software to the hardware to the materials within the computer itself, however I am a physicist in my core and thus I am focusing on computational condensed matter and quantum chemistry. My main projects so far involve materials discovery using AI and Density Functional Theory in HPC for spintronics.
 
 Long term I want to do research in deep tech or R&D, and get really good at HPC, machine learning and parallel computing for applied science.
 
