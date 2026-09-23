@@ -11,6 +11,8 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Arimo&weight=700&size=20&pause=1200&duration=4200&color=C08040&center=false&vCenter=true&width=700&height=42&lines=Computational+Physics+and+Scientific+Machine+Learning" alt="Computational Physics and Scientific Machine Learning">
 
+Im Max, a student at Tec de Monterrey in Mexico! Majoring in Engineering Physics.
+
 I'm into computational physics and scientific computing, lately a lot of SciML. Pretty much anything with computing and data.
 
 Im a really multidisciplinary person, I enjoy computation a lot, from the software to the hardware to the materials within the computer itself, however I am a physicist in my core and thus I am focusing on computational condensed matter and quantum chemistry. My main projects so far involve materials discovery using AI and Density Functional Theory in HPC for spintronics.
