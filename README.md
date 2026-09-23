@@ -53,15 +53,15 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 
 <sub><b>stuff i've built</b></sub>
 
-**[QE-Workflow](https://github.com/BladedGoose13/QE-Workflow)** &mdash; silicon-doped graphene band structures with Quantum ESPRESSO. reproduced the known graphene bands first to prove the setup wasn't lying to me, then went after Si doping with the Virtual Crystal Approximation. poster at Tec Science Summit 2026
+**[QE-Workflow](https://github.com/BladedGoose13/QE-Workflow)** &mdash; silicon-doped graphene band structures with Quantum ESPRESSO. reproduced the known graphene bands first to prove the setup physically accurate, then went after Si doping with the Virtual Crystal Approximation to study dirac cones and DOS as Si increases. Poster at Tec Science Summit 2026
 
-**[ThermoHub.Sim](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0)** &mdash; steam tables that actually interpolate, behind a Streamlit UI so you don't need to code to use it. enforces the state postulate too (two properties, no more!)
+**[ThermoHub.Sim](https://github.com/BladedGoose13/ThermoHub.Sim---V1.0)** &mdash; steam tables interpolation, behind a Streamlit UI so you don't need to code to use it. enforces the state postulate too (in my defense, it was made without much AI)
 
-**[LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO)** &mdash; quantitative ESG framework, Monte Carlo + optimization under pretty imperfect data. built for Consult for a Cause 2026 with Xignux and Strategy&amp;
+**[LUMIO](https://github.com/BladedGoose13/ESG-Framework-LUMIO)** &mdash; quantitative ESG framework, Monte Carlo + optimization under imperfect data (WIP). Built for Consult for a Cause 2026 with Xignux and Strategy&amp;
 
-**[PathWise](https://github.com/BladedGoose13/PathWise)** &mdash; a PWA for high school students in Mexico. the one that taught me shipping is way harder than building
+**[PathWise](https://github.com/BladedGoose13/PathWise)** &mdash; a PWA for high school students in Mexico. This project got us a global win at the DigiEduHack 2025 and a trip to Brussels to pitch it! Pretty cool heh
 
-**[STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama)** &mdash; a memory and pattern recognition card game, not everything needs a Hamiltonian lol
+**[STREAMLIT-Memorama](https://github.com/BladedGoose13/STREAMLIT-Memorama)** &mdash; finally a memory and pattern recognition card game for one of my classes, not everything needs a Hamiltonian lol
 
 The rest of me: indie and chill rock, gym (not ur average joe i promise!), anime, and plenty of videogames and crafts!
 Coffee and bakery enjoyer! (and i believe connoisseur lol) I also LOVE travelling and getting to know new people.
