@@ -31,7 +31,7 @@ Long term I want to do research in deep tech or R&D, and get really good at HPC,
 <td width="14%"><sub><b>HPC &amp; SciML</b></sub></td>
 <td>
 <img src="https://img.shields.io/badge/Linux-4A3B8C?style=for-the-badge&logo=linux&logoColor=E6E3F5" alt="Linux">
-<img src="https://img.shields.io/badge/Slurm_%26_HPC-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm & MPI">
+<img src="https://img.shields.io/badge/Slurm_%26_MPI-5E4A9E?style=for-the-badge&logo=linuxfoundation&logoColor=E6E3F5" alt="Slurm & MPI">
 <img src="https://img.shields.io/badge/C%2B%2B-4A3B8C?style=for-the-badge&logo=cplusplus&logoColor=E6E3F5" alt="C++">
 <img src="https://img.shields.io/badge/CUDA-AD642E?style=for-the-badge&logo=nvidia&logoColor=E6E3F5" alt="CUDA">
 <img src="https://img.shields.io/badge/PyTorch-73421A?style=for-the-badge&logo=pytorch&logoColor=E6E3F5" alt="PyTorch">
